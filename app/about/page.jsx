@@ -254,7 +254,7 @@ export default function About() {
             </div>
           </div>
         </section>
-        <BulkTrainingUploader />
+        {/* <BulkTrainingUploader /> */}
 
         {/* Mission Section */}
         <section
