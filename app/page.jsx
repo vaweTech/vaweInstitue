@@ -194,7 +194,7 @@ export default function Home() {
         <section className=" py-8 sm:py-12 md:py-20 lg:py-24 xl:py-32 2xl:py-40" style={{ backgroundColor: 'var(--background)' }}>
           <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-16">
             <div className="text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20 animate-slide-up">
-              <div className="inline-flex items-center space-x-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-3 sm:mb-4" style={{ backgroundColor: 'rgba(38,235,229,0.12)' }}>
+              <div className="inline-flex items-center space-x-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-3 sm:mb-4" style={{ backgroundColor: '#E6FFFB' }}>
                 <Target className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5" style={{ color: 'var(--brand-accent)' }} />
                 <span className="text-xs sm:text-sm md:text-base font-medium" style={{ color: 'var(--brand-accent)' }}>Popular Courses</span>
               </div>
@@ -244,7 +244,7 @@ export default function Home() {
                 const Icon = stat.Icon;
                 return (
                   <div key={index} className="text-center group animate-slide-up" style={{ animationDelay: `${index * 100}ms` }}>
-                    <div className="mb-3 sm:mb-4 md:mb-6 inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-18 lg:h-18 xl:w-20 xl:h-20 2xl:w-24 2xl:h-24 rounded-xl sm:rounded-2xl bg-[#A8DADC] text-white shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
+                    <div className="mb-3 sm:mb-4 md:mb-6 inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-18 lg:h-18 xl:w-20 xl:h-20 2xl:w-24 2xl:h-24 rounded-xl sm:rounded-2xl bg-[#65ADAD] text-white shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
                       <Icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-9 lg:h-9 xl:w-10 xl:h-10 2xl:w-12 2xl:h-12" />
                     </div>
                     <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold bg-black bg-clip-text text-transparent mb-1 sm:mb-2 leading-tight">

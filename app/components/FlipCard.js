@@ -47,7 +47,7 @@ export default function FlipCard({ course, className = "", variant = "default" }
           className={`absolute inset-0 w-full h-full backface-hidden ${variants[variant]} rounded-2xl overflow-hidden bg-white shadow-lg`}
         >
           <div className="relative z-10 p-6 h-full flex flex-col justify-center items-center text-center">
-            <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#A8DADC] to-[#F4A7B9] flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110">
+            <div className="w-16 h-16 rounded-xl bg-[#38328E] flex items-center justify-center mb-4 transition-transform duration-300">
               <Icon className="w-8 h-8 text-white" />
             </div>
 
@@ -74,7 +74,7 @@ export default function FlipCard({ course, className = "", variant = "default" }
           <div className="relative z-10 p-6 h-full flex flex-col justify-between">
             <div>
               <div className="flex items-center mb-4">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--navbar-hero)] to-[var(--button)] flex items-center justify-center mr-3 shadow-lg">
+                <div className="w-12 h-12 rounded-xl bg-[var(--navbar-hero)] flex items-center justify-center mr-3 shadow-lg">
                   <Icon className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-[var(--text)]">{course.title}</h3>
