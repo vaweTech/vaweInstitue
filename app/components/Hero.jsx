@@ -912,6 +912,8 @@ export default function Hero() {
   const isMountedRef = useRef(false);
   const landingSlideTimeout = useRef(null);
   const videoRef = useRef(null);
+  const LANDING_SLIDE_DURATION = 5000; // 4 seconds for landing experience
+  const LANDING_TRANSITION_SECONDS = 0.8;
 
   // Landing slide image - your refresh poster
   const landingImage = "/assets/herovideo.mp4"; // <--- refresh.png used for landing slideoa
@@ -964,7 +966,7 @@ export default function Hero() {
       // buttons: [{ text: "Join Workshop", href: "/workshops", primary: true }],
     },
     {
-      title: "CRT & Placements",
+      title: "Campus Recruitment Training (CRT)",
       quotation: "Your Journey to Skill Excellence Starts Here",
       subTagline: "Prepare with confidence. Perform with excellence.",
       bullets: ["Boost job opportunities."],
@@ -982,13 +984,13 @@ export default function Hero() {
     if (hasSeenLanding === "true") {
       setShowLandingSlide(false);
     } else {
-      // Show landing slide for 5 seconds, then transition to carousel
+      // Show landing slide for defined duration, then transition to carousel
       landingSlideTimeout.current = setTimeout(() => {
         if (isMountedRef.current) {
           setShowLandingSlide(false);
           sessionStorage.setItem("vawe-landing-seen", "true");
         }
-      }, 10000); // Show for 5 seconds
+      }, LANDING_SLIDE_DURATION);
     }
 
     return () => {
@@ -1128,10 +1130,10 @@ export default function Hero() {
       >
         <div className="inline-block">
           <span
-            className="text-4xl font-semibold tracking-wider uppercase px-4 py-2 rounded-lg shadow-sm"
+            className="text-xs font-semibold tracking-wider uppercase px-4 py-2 rounded-lg shadow-sm"
             style={{
-              backgroundColor: "#f7e2b5",
-              color: "#fea501",
+              backgroundColor: "#EFF6FF",
+              color: "#2563EB",
               fontFamily: '"Times New Roman", Times, serif',
             }}
           >
@@ -1146,7 +1148,7 @@ export default function Hero() {
             fontWeight: currentStyles.headlineWeight,
             lineHeight: isMobile ? "1.25" : "1.2",
             fontFamily: '"Times New Roman", Times, serif',
-            fontSize: isMobile ? "clamp(1.9rem, 6vw, 2.8rem)" : "2rem",
+            fontSize: isMobile ? "clamp(1.9rem, 6vw, 2.8rem)" : "3.5rem",
             maxHeight: isMobile ? "none" : "8.4rem",
             overflow: "hidden",
             display: "-webkit-box",
@@ -1311,7 +1313,7 @@ export default function Hero() {
       : "px-8 py-3 text-sm font-bold !rounded-xl transition-all duration-500 ease-out relative overflow-hidden group !border-2 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transform-gpu backdrop-blur-sm";
 
     return (
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.8, ease: "easeInOut" }} className={isMobile ? "space-y-6" : "space-y-8"}>
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: LANDING_TRANSITION_SECONDS, ease: "easeInOut" }} className={isMobile ? "space-y-6" : "space-y-8"}>
         <div className="inline-block">
           <span
             className="text-5xl font-semibold tracking-wider uppercase px-4 py-2 rounded-lg shadow-sm"
@@ -1539,7 +1541,7 @@ export default function Hero() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{
-                  duration: 3.6,
+                  duration: LANDING_TRANSITION_SECONDS,
                   ease: "easeInOut",
                 }}
                 className="absolute inset-0 w-full h-full bg-white flex items-center justify-center p-6 lg:p-8"
