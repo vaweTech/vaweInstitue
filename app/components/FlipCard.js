@@ -51,10 +51,10 @@ export default function FlipCard({ course, className = "", variant = "default" }
               <Icon className="w-8 h-8 text-white" />
             </div>
 
-            <h3 className="text-2xl font-bold text-[var(--text)] mb-2">{course.title}</h3>
+            <h3 className="text-xl font-bold text-[var(--text)] mb-2">{course.title}</h3>
             <p className="text-gray-600 text-base mb-4">{course.description}</p>
 
-            <div className="space-y-2 text-gray-500 text-sm">
+            <div className="space-y-2 text-gray-500 text-xm">
               <div className="flex items-center justify-center">
                 <Clock className="w-4 h-4 mr-2 text-[#A8DADC]" />
                 <span>{course.duration}</span>

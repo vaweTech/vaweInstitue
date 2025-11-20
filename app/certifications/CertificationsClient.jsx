@@ -31,29 +31,54 @@ export default function CertificationsClient() {
 
   const certificateTypes = [
     {
-      id: 'internship',
-      name: 'Internship Certificates',
+      id: 'internship-short',
+      category: 'internship',
+      name: 'Short-Term Internship',
       icon: Briefcase,
       color: 'from-blue-500 to-blue-700',
       bgColor: 'bg-blue-50',
       borderColor: 'border-blue-200',
-      description: 'Certificates awarded upon successful completion of internship programs',
-      duration: '1-6 months',
+      description: 'Focused internship experience to help you explore a role quickly.',
+      duration: '4-8 weeks',
       requirements: [
-        'Complete assigned projects',
-        'Attend all internship sessions',
-        'Submit final project report',
-        'Maintain minimum 70% attendance',
+        'Attend onboarding and weekly review calls',
+        'Complete at least two guided projects',
+        'Submit reflective learning journal',
+        'Maintain 70% attendance',
       ],
       benefits: [
-        'Real-world industry experience',
-        'Portfolio development',
-        'Mentorship from experts',
-        'Job placement assistance',
+        'Rapid exposure to industry tools',
+        'Mini portfolio pieces',
+        'Performance feedback report',
+        'Recommendation letter (on merit)',
+      ],
+    },
+    {
+      id: 'internship-long',
+      category: 'internship',
+      name: 'Long-Term Internship',
+      icon: Briefcase,
+      color: 'from-indigo-500 to-indigo-700',
+      bgColor: 'bg-indigo-50',
+      borderColor: 'border-indigo-200',
+      description: 'Immersive internship journey with ownership of end-to-end deliverables.',
+      duration: '3-6 months',
+      requirements: [
+        'Complete milestone-based roadmap',
+        'Lead at least one capstone initiative',
+        'Pass peer and mentor evaluations',
+        'Maintain 80% attendance',
+      ],
+      benefits: [
+        'In-depth mentorship and review cycles',
+        'Opportunity for stipend based roles',
+        'Job placement prioritization',
+        'Pearson VUE exam fee support (select tracks)',
       ],
     },
     {
       id: 'short-term',
+      category: 'short-term',
       name: 'Short-Term Course Certificates',
       icon: Clock,
       color: 'from-green-500 to-green-700',
@@ -76,6 +101,7 @@ export default function CertificationsClient() {
     },
     {
       id: 'long-term',
+      category: 'long-term',
       name: 'Long-Term Course Certificates',
       icon: GraduationCap,
       color: 'from-purple-500 to-purple-700',
@@ -100,6 +126,7 @@ export default function CertificationsClient() {
     },
     {
       id: 'professional',
+      category: 'professional',
       name: 'Professional Certifications',
       icon: Award,
       color: 'from-orange-500 to-orange-700',
@@ -156,9 +183,12 @@ export default function CertificationsClient() {
     },
   ];
 
+  const normalizedFilter = selectedType.toLowerCase().replace(/\s+/g, '-');
   const filteredTypes = selectedType === 'All' 
     ? certificateTypes 
-    : certificateTypes.filter(type => type.id === selectedType.toLowerCase().replace(' ', '-'));
+    : certificateTypes.filter(type => 
+        type.id === normalizedFilter || type.category === normalizedFilter
+      );
 
   return (
     <>
@@ -292,7 +322,7 @@ export default function CertificationsClient() {
                 return (
                   <Card
                     key={type.id}
-                    className={`h-full border-2 ${type.borderColor} hover:shadow-2xl transition-all duration-300 overflow-hidden`}
+                    className={`h-full border-2 ${type.borderColor} hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col`}
                   >
                     <CardHeader className={`bg-gradient-to-r ${type.color} text-white p-6`}>
                       <div className="flex items-center gap-4">
@@ -305,7 +335,7 @@ export default function CertificationsClient() {
                         </div>
                       </div>
                     </CardHeader>
-                    <CardBody className={`${type.bgColor} p-6`}>
+                    <CardBody className={`${type.bgColor} p-6 flex-1`}>
                       <div className="space-y-6">
                         {/* Duration */}
                         <div className="flex items-center gap-3">
@@ -349,7 +379,7 @@ export default function CertificationsClient() {
                         </div>
                       </div>
                     </CardBody>
-                    <CardFooter className={`${type.bgColor} p-6 pt-0`}>
+                    <CardFooter className={`${type.bgColor} p-6 pt-0 mt-auto`}>
                       <Button
                         href="/enrollment"
                         variant="primary"

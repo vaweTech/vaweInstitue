@@ -2,7 +2,7 @@ import { posts } from "./blogs/posts";
 import { courses } from "./courses/data";
 
 export default function sitemap() {
-  const baseUrl = "https://vaweinstitute.com";
+  const baseUrl = "https://vaweinstitute.com"; //https://vaweinstitute.com/
   const now = new Date();
 
   const staticPages = [

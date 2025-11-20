@@ -198,7 +198,7 @@ export default function Home() {
                 <Target className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5" style={{ color: 'var(--brand-accent)' }} />
                 <span className="text-xs sm:text-sm md:text-base font-medium" style={{ color: 'var(--brand-accent)' }}>Popular Courses</span>
               </div>
-              <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-[var(--text)] mb-3 sm:mb-4 md:mb-6 leading-tight">
+              <h2 className="text-3xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl 2xl:text-7xl font-bold text-[var(--text)] mb-3 sm:mb-4 md:mb-6 leading-tight">
                 Top Courses
               </h2>
               <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl text-gray-600 max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto leading-relaxed px-2">

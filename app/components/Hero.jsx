@@ -911,18 +911,18 @@ export default function Hero() {
   const resumeTimeout = useRef(null);
   const isMountedRef = useRef(false);
   const landingSlideTimeout = useRef(null);
+  const videoRef = useRef(null);
 
   // Landing slide image - your refresh poster
-  const landingImage = "/assets/refresh.png"; // <--- refresh.png used for landing slide
+  const landingImage = "/assets/herovideo.mp4"; // <--- refresh.png used for landing slideoa
 
   const images = [
     "/assets/dummycrt1.png", // Trainings
     "/assets/cirtificateimg.png", // Certifications
-    "/assets/pro1.png", // Projects
-    "/assets/wsp.jpg", // Workshops
-    "/assets/trainings.png", // CRT
-    "/assets/dummyproject.png", // Placements
-  ];
+    "/assets/projectshero.png", // Projects
+    "/assets/workshopi.png", // Workshops
+    "/assets/crthero.png", // CRT
+   ];
 
   const slideContent = [
     {
@@ -931,10 +931,10 @@ export default function Hero() {
       subTagline: "Where every step strengthens your skills.",
       bullets: ["Industry-driven programs to boost employability."],
       style: "futuristic",
-      buttons: [
-        { text: "Explore Trainings", href: "/courses", primary: true },
-        { text: "View Syllabus", href: "/syllabus", primary: false },
-      ],
+      // buttons: [
+      //   { text: "Explore Trainings", href: "/courses", primary: true },
+      //   { text: "View Syllabus", href: "/syllabus", primary: false },
+      // ],
     },
     {
       title: "Certifications",
@@ -942,7 +942,7 @@ export default function Hero() {
       subTagline: "Earn credentials that elevate your career.",
       bullets: ["Stand out as a validated professional."],
       style: "corporate",
-      buttons: [{ text: "Get Certified", href: "/certifications", primary: true }],
+      // buttons: [{ text: "Get Certified", href: "/certifications", primary: true }],
     },
     {
       title: "Projects",
@@ -950,10 +950,10 @@ export default function Hero() {
       subTagline: "Apply, innovate, and achieve real-world impact.",
       bullets: ["End-to-end project development."],
       style: "dark",
-      buttons: [
-        { text: "Start a Project", href: "/projects", primary: true },
-        { text: "View Student Projects", href: "/student-projects", primary: false },
-      ],
+      // buttons: [
+      //   { text: "Start a Project", href: "/projects", primary: true },
+      //   { text: "View Student Projects", href: "/student-projects", primary: false },
+      // ],
     },
     {
       title: "Workshops",
@@ -961,24 +961,17 @@ export default function Hero() {
       subTagline: "Experience hands-on learning that accelerates mastery.",
       bullets: ["Master trending technologies."],
       style: "colorful",
-      buttons: [{ text: "Join Workshop", href: "/workshops", primary: true }],
+      // buttons: [{ text: "Join Workshop", href: "/workshops", primary: true }],
     },
     {
-      title: "Campus Recruitment Training (CRT)",
+      title: "CRT & Placements",
       quotation: "Your Journey to Skill Excellence Starts Here",
       subTagline: "Prepare with confidence. Perform with excellence.",
       bullets: ["Boost job opportunities."],
       style: "premium",
-      buttons: [{ text: "Start CRT Training", href: "/crt", primary: true }],
+      // buttons: [{ text: "Start CRT Training", href: "/crt", primary: true }],
     },
-    {
-      title: "Placements",
-      quotation: "Unlock Opportunities. Shape Your Future.",
-      subTagline: "Connecting your talent to the right career path.",
-      bullets: ["Increases job opportunities with industry partnerships."],
-      style: "premium",
-      buttons: [{ text: "Placement Support", href: "/placements", primary: true }],
-    },
+  
   ];
 
   useEffect(() => {
@@ -995,7 +988,7 @@ export default function Hero() {
           setShowLandingSlide(false);
           sessionStorage.setItem("vawe-landing-seen", "true");
         }
-      }, 5000); // Show for 5 seconds
+      }, 10000); // Show for 5 seconds
     }
 
     return () => {
@@ -1011,10 +1004,54 @@ export default function Hero() {
 
     const timer = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % images.length);
-    }, 3000); // 3 seconds
+    }, 3000); // 15 seconds
 
     return () => clearInterval(timer);
   }, [isPaused, images.length, showLandingSlide]);
+
+  // Ensure video plays when landing slide is shown at 1.5x speed
+  useEffect(() => {
+    if (showLandingSlide && videoRef.current) {
+      const video = videoRef.current;
+      
+      // Set playback speed to 1.5x
+      video.playbackRate = 2;
+      
+      // Function to play video
+      const playVideo = async () => {
+        try {
+          // Ensure playback rate is set before playing
+          video.playbackRate = 2;
+          await video.play();
+        } catch (error) {
+          console.error("Error playing video:", error);
+          // Retry after a short delay
+          setTimeout(() => {
+            video.playbackRate = 2;
+            video.play().catch((err) => console.error("Retry play failed:", err));
+          }, 100);
+        }
+      };
+
+      // Play when video is loaded
+      if (video.readyState >= 2) {
+        // Video is already loaded
+        playVideo();
+      } else {
+        // Wait for video to load
+        video.addEventListener("loadeddata", playVideo, { once: true });
+        video.addEventListener("canplay", playVideo, { once: true });
+      }
+
+      // Also try to play immediately
+      playVideo();
+
+      return () => {
+        video.removeEventListener("loadeddata", playVideo);
+        video.removeEventListener("canplay", playVideo);
+      };
+    }
+  }, [showLandingSlide]);
 
   const handleMouseEnter = () => {
     setIsPaused(true);
@@ -1091,10 +1128,10 @@ export default function Hero() {
       >
         <div className="inline-block">
           <span
-            className="text-xs font-semibold tracking-wider uppercase px-4 py-2 rounded-lg shadow-sm"
+            className="text-4xl font-semibold tracking-wider uppercase px-4 py-2 rounded-lg shadow-sm"
             style={{
-              backgroundColor: "#EFF6FF",
-              color: "#2563EB",
+              backgroundColor: "#f7e2b5",
+              color: "#fea501",
               fontFamily: '"Times New Roman", Times, serif',
             }}
           >
@@ -1109,7 +1146,7 @@ export default function Hero() {
             fontWeight: currentStyles.headlineWeight,
             lineHeight: isMobile ? "1.25" : "1.2",
             fontFamily: '"Times New Roman", Times, serif',
-            fontSize: isMobile ? "clamp(1.9rem, 6vw, 2.8rem)" : "3.5rem",
+            fontSize: isMobile ? "clamp(1.9rem, 6vw, 2.8rem)" : "2rem",
             maxHeight: isMobile ? "none" : "8.4rem",
             overflow: "hidden",
             display: "-webkit-box",
@@ -1277,7 +1314,7 @@ export default function Hero() {
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.8, ease: "easeInOut" }} className={isMobile ? "space-y-6" : "space-y-8"}>
         <div className="inline-block">
           <span
-            className="text-xs font-semibold tracking-wider uppercase px-4 py-2 rounded-lg shadow-sm"
+            className="text-5xl font-semibold tracking-wider uppercase px-4 py-2 rounded-lg shadow-sm"
             style={{
               backgroundColor: "rgba(255, 165, 0, 0.2)",
               color: "#FFA500",
@@ -1423,11 +1460,12 @@ export default function Hero() {
           {showLandingSlide && (
             <>
               <div
-                className="absolute inset-0"
+                className="absolute inset-0 lg:w-[130%]"
                 style={{
                   background: "linear-gradient(135deg, #022a70 0%, #043d9a 50%, #0452d4 100%)",
                   clipPath: "polygon(0% 0%, 100% 0%, 80% 145%, 0% 100%)",
                   boxShadow: "10px 0 45px rgba(4, 61, 154, 0.45)",
+                  zIndex: 60,
                 }}
               />
               <div
@@ -1437,17 +1475,19 @@ export default function Hero() {
                   transform: "skewX(-12deg) translateX(70%)",
                   background: "linear-gradient(90deg, rgba(255,255,255,0.65), rgba(255,255,255,0))",
                   opacity: 0.25,
+                  zIndex: 61,
                 }}
               />
               <div
                 className="absolute inset-0 pointer-events-none"
                 style={{
                   background: "radial-gradient(circle at 25% 25%, rgba(255,255,255,0.18), transparent 55%)",
+                  zIndex: 62,
                 }}
               />
             </>
           )}
-          <div className="max-w-xl w-full h-full flex flex-col justify-center relative z-10">{renderSlideContent("desktop")}</div>
+          <div className="max-w-xl w-full h-full flex flex-col justify-center relative z-[70]">{renderSlideContent("desktop")}</div>
         </div>
 
         {/* CENTER DIAGONAL DIVIDER (120°) — shown ONLY while landing slide visible */}
@@ -1499,33 +1539,47 @@ export default function Hero() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{
-                  duration: 0.8,
+                  duration: 3.6,
                   ease: "easeInOut",
                 }}
                 className="absolute inset-0 w-full h-full bg-white flex items-center justify-center p-6 lg:p-8"
               >
                 <div
-                  className="relative flex items-center justify-center"
+                  className="relative flex items-center justify-center overflow-hidden"
                   style={{
-                    width: "650px",
-                    height: "650px",
+                    width: "1000px",
+                    height: "1000px",
                     maxWidth: "98%",
                     maxHeight: "98%",
+                    transform: "scale(1.4)",
+                    transformOrigin: "center center",
                   }}
                 >
-                  <Image
+                  <video
+                    ref={videoRef}
                     src={landingImage}
-                    alt="VAWE Institute - Empowering You Through Value-Driven Skill Advancement"
-                    fill
-                    className="object-contain"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="auto"
+                    className="w-full h-full object-contain"
                     style={{
                       objectFit: "contain",
                       objectPosition: "center center",
                       backgroundColor: "#ffffff",
                     }}
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    quality={90}
-                    priority={true}
+                    aria-label="VAWE Institute - Empowering You Through Value-Driven Skill Advancement"
+                    onLoadedData={(e) => {
+                      const video = e.target;
+                      video.playbackRate = 2;
+                      video.play().catch((err) => console.error("Play on loadeddata failed:", err));
+                    }}
+                    onCanPlay={(e) => {
+                      const video = e.target;
+                      video.playbackRate = 2;
+                      video.play().catch((err) => console.error("Play on canplay failed:", err));
+                    }}
                   />
                 </div>
               </motion.div>

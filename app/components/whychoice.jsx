@@ -237,10 +237,10 @@ export default function FeaturesSection() {
     <main className="flex flex-col items-center justify-center md:mt-[-350px] mt-[-250px] px-8 py-16 bg-gray-50">
       {/* HEADER SECTION */}
       <div className="w-full max-w-[650px] flex flex-col justify-center text-center mb-12">
-        <h2 className="text-4xl font-bold leading-tight mb-4 text-gray-800">
+        <h2 className="text-2xl sm:text-2xl md:text-2xl  2xl:text-5xl font-bold leading-tight mb-4 text-gray-800">
           Why Choose Our Courses
         </h2>
-        <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+        <p className="text-sm sm:text-base md:text-lg  2xl:text-xl text-gray-700 mb-6 leading-relaxed">
           Discover the advantages of learning with us — flexible options, expert
           instructors, certifications, and proven career success.
         </p>
@@ -289,7 +289,7 @@ export default function FeaturesSection() {
       </div>
 
       {/* STATS CIRCLES */}
-      <div className="w-full lg:w-[80%] mt-[70px] grid grid-cols-2 sm:grid-cols-4 gap-10 place-items-center">
+      <div className="w-full lg:w-[80%] mt-[-5px] grid grid-cols-2 sm:grid-cols-4 gap-10 place-items-center">
         {stats.map((stat, index) => (
           <div
             key={index}

@@ -766,11 +766,13 @@ export default function Navbar() {
 
   const services = [
     { name: 'Trainings', href: '/services#trainings', icon: GraduationCap },
-    { name: 'Certifications', href: '/services#certifications', icon: Award },
+    { name: 'Internships', href: '/services#internships', icon: Building2 },
+    { name: 'Certifications', href: '/certifications', icon: Award },
     { name: 'Projects', href: '/services#projects', icon: Briefcase },
     { name: 'Workshops', href: '/services#workshops', icon: Users },
     { name: 'CRT', href: '/services#crt', icon: Building2 },
     { name: 'Placements', href: '/services#placements', icon: Building2 },
+
   ];
 
   const navLinks = [
@@ -810,12 +812,13 @@ export default function Navbar() {
                 />
               </div>
 
-              <div className="hidden sm:flex flex-col leading-none">
-                <span className="text-sm sm:text-base md:text-2xl font-bold text-gray-700 hover:text-blue-600 transition-colors"
-                      style={{ fontFamily: '"Times New Roman", Times, serif' }}>
+              <div className="flex flex-col leading-none">
+                <span
+                  className="text-xs sm:text-sm md:text-base lg:text-2xl font-bold text-gray-700 hover:text-blue-600 transition-colors"
+                  style={{ fontFamily: '"Times New Roman", Times, serif' }}
+                >
                   VAWE INSTITUTE
                 </span>
-          
               </div>
             </Link>
 
