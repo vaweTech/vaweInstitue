@@ -1,21 +1,33 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
+import { useMemo, useCallback } from "react";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function BlogsClient({ posts }) {
   const searchParams = useSearchParams();
-  const [selectedTag, setSelectedTag] = useState("");
+  const router = useRouter();
+  const pathname = usePathname();
 
-  // Initialize tag from URL parameter
-  useEffect(() => {
+  const selectedTag = useMemo(() => {
     const tagParam = searchParams.get("tag");
-    if (tagParam) {
-      setSelectedTag(decodeURIComponent(tagParam));
-    }
+    return tagParam ? decodeURIComponent(tagParam) : "";
   }, [searchParams]);
+
+  const updateTagFilter = useCallback(
+    (tag) => {
+      const params = new URLSearchParams(searchParams.toString());
+      if (!tag) {
+        params.delete("tag");
+      } else {
+        params.set("tag", tag);
+      }
+      const query = params.toString();
+      router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false });
+    },
+    [pathname, router, searchParams]
+  );
 
   // Get all unique tags
   const allTags = useMemo(() => {
@@ -53,7 +65,7 @@ export default function BlogsClient({ posts }) {
       <div className="mb-8">
         <div className="flex flex-wrap gap-2">
           <button
-            onClick={() => setSelectedTag("")}
+            onClick={() => updateTagFilter("")}
             className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
               selectedTag === ""
                 ? "bg-blue-600 text-white"
@@ -66,7 +78,7 @@ export default function BlogsClient({ posts }) {
             <button
               key={tag}
               onClick={() =>
-                setSelectedTag(selectedTag === tag ? "" : tag)
+                updateTagFilter(selectedTag === tag ? "" : tag)
               }
               className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                 selectedTag === tag
@@ -82,7 +94,7 @@ export default function BlogsClient({ posts }) {
         {/* Results Count */}
         {selectedTag && (
           <div className="mt-4 text-sm text-gray-600">
-            Showing {filteredPosts.length} of {posts.length} blog posts in "{selectedTag}"
+            Showing {filteredPosts.length} of {posts.length} blog posts in &ldquo;{selectedTag}&rdquo;
           </div>
         )}
       </div>
@@ -193,7 +205,7 @@ export default function BlogsClient({ posts }) {
           </p>
           {selectedTag && (
             <button
-              onClick={() => setSelectedTag("")}
+              onClick={() => updateTagFilter("")}
               className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
             >
               Clear Filter

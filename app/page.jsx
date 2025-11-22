@@ -1,11 +1,11 @@
 import Footer from './components/Footer';
 import Hero from './components/Hero';
-import ChatBot from './components/ChatBot';
+import Strengths from './components/Strengths';
+import ServicesDisplay from './components/ServicesSection';
 import Button from './components/Button';
-import Card, { CardHeader, CardBody, CardFooter } from './components/Card';
 import FlipCard from './components/FlipCard';
 import PartnerMarquee from './components/PartnerMarquee';
-import { Code, BarChart3, Megaphone, Briefcase, Clock, TrendingUp, BookOpen, Award, Users, Target, Sparkles, ArrowRight, CheckCircle2, Star, Quote } from 'lucide-react';
+import { TrendingUp, BookOpen, Award, Users, Target, Sparkles, ArrowRight, CheckCircle2, Star, Quote } from 'lucide-react';
 import HoverCards from './components/whychoice';
 export default function Home() {
 
@@ -18,6 +18,7 @@ export default function Home() {
       level: 'Beginner to Advanced',
       color: 'blue',
       iconName: 'Code',
+      image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80',
       enrolled: '1,200+',
       rating: '4.9',
       features: [
@@ -39,6 +40,7 @@ export default function Home() {
       level: 'Intermediate',
       color: 'pink',
       iconName: 'BarChart3',
+      image: 'https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?auto=format&fit=crop&w=800&q=80',
       enrolled: '850+',
       rating: '4.8',
       features: [
@@ -60,6 +62,7 @@ export default function Home() {
       level: 'Beginner',
       color: 'yellow',
       iconName: 'Megaphone',
+      image: 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=80',
       enrolled: '1,500+',
       rating: '4.7',
       features: [
@@ -81,6 +84,7 @@ export default function Home() {
       level: 'All Levels',
       color: 'green',
       iconName: 'Briefcase',
+      image: 'https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=800&q=80',
       enrolled: '900+',
       rating: '4.9',
       features: [
@@ -187,19 +191,21 @@ export default function Home() {
   return (
     <>
       <main className="min-h-screen">
-        <div className="lg:mt-[-50px]">
+        <div className="lg:mt-[-40px]">
         <Hero />  
         </div>
+        <div className="lg:mt-[30px]">
+        <PartnerMarquee />
+        </div>
+        <div className="lg:mt-[50px]">
+        <ServicesDisplay />
+        </div>
         {/* Featured Courses Section (Top Courses) */}
-        <section className=" py-8 sm:py-12 md:py-20 lg:py-24 xl:py-32 2xl:py-40" style={{ backgroundColor: 'var(--background)' }}>
+        <section className=" py-8 sm:py-12 md:py-20 lg:py-24 lg:mt-[-150px] xl:py-32 2xl:py-40" style={{ backgroundColor: 'var(--background)' }}>
           <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-16">
             <div className="text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20 animate-slide-up">
-              <div className="inline-flex items-center space-x-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-3 sm:mb-4" style={{ backgroundColor: '#E6FFFB' }}>
-                <Target className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5" style={{ color: 'var(--brand-accent)' }} />
-                <span className="text-xs sm:text-sm md:text-base font-medium" style={{ color: 'var(--brand-accent)' }}>Popular Courses</span>
-              </div>
               <h2 className="text-3xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl 2xl:text-7xl font-bold text-[var(--text)] mb-3 sm:mb-4 md:mb-6 leading-tight">
-                Top Courses
+              Popular Courses
               </h2>
               <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl text-gray-600 max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto leading-relaxed px-2">
                 Explore our most popular courses designed to help you succeed in your career
@@ -218,7 +224,7 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="text-center mt-8 sm:mt-12 md:mt-16 lg:mt-20">
+            <div className="text-center mt-8 sm:mt-12 md:mt-16 lg:mt-12">
               <Button href="/courses" variant="primary" size="lg" className="w-full sm:w-auto shadow-xl hover:shadow-2xl text-sm sm:text-base md:text-lg lg:text-xl py-3 sm:py-4 md:py-5 px-6 sm:px-8 md:px-10">
                 <span className="flex items-center space-x-2">
                   <BookOpen className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
@@ -236,38 +242,17 @@ export default function Home() {
                 <HoverCards />
               </section>
 <hr/>
-        {/* Stats Section (moved below Why Choose) */}
-        <section className="py-8 sm:py-12 lg:mt-[-200px] md:py-20 lg:py-24 xl:py-32 2xl:py-40" style={{ backgroundColor: 'var(--background)' }}>
-          <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-16">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 lg:gap-10 xl:gap-12">
-              {stats.map((stat, index) => {
-                const Icon = stat.Icon;
-                return (
-                  <div key={index} className="text-center group animate-slide-up" style={{ animationDelay: `${index * 100}ms` }}>
-                    <div className="mb-3 sm:mb-4 md:mb-6 inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-18 lg:h-18 xl:w-20 xl:h-20 2xl:w-24 2xl:h-24 rounded-xl sm:rounded-2xl bg-[#65ADAD] text-white shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
-                      <Icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-9 lg:h-9 xl:w-10 xl:h-10 2xl:w-12 2xl:h-12" />
-                    </div>
-                    <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold bg-black bg-clip-text text-transparent mb-1 sm:mb-2 leading-tight">
-                      {stat.number}
-                    </div>
-                    <div className="text-gray-600 font-medium text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl leading-tight px-1">
-                      {stat.label}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
+  
+        <Strengths />
 
         {/* Testimonials Section */}
-        <section className="py-8 sm:py-12 md:py-20 lg:py-24 xl:py-32 2xl:py-40 relative overflow-hidden" style={{ backgroundColor: 'var(--background-alt)' }}>
+        <section className="py-8  sm:py-12 md:py-20 lg:mb-[-100px] lg:py-24  xl:py-32 2xl:py-40 relative overflow-hidden" style={{ backgroundColor: 'var(--background-alt)' }}>
           {/* Background Elements */}
           <div className="absolute inset-0" style={{ backgroundColor: 'transparent' }}></div>
           
           <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-16 relative z-10">
             <div className="text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20">
-              <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text=[var(--text)] mb-3 sm:mb-4 md:mb-6 leading-tight">
+              <h2 className="text-xl lg:mt-[-85px] sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-black mb-3 sm:mb-4 md:mb-6 leading-tight">
                 What Our Students Say
               </h2>
               <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl text-gray-600 max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto leading-relaxed px-2">
@@ -339,34 +324,54 @@ export default function Home() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-8 sm:py-12 md:py-20 lg:py-24 xl:py-32 2xl:py-40 relative overflow-hidden bg-gradient-to-b from-[#53cafc] to-[#4b95e3] text-white">
-          {/* Background decoration */}
-          <div className="absolute inset-0">
-            <div className="absolute top-5 sm:top-10 right-5 sm:right-10 w-16 sm:w-24 md:w-32 lg:w-40 h-16 sm:h-24 md:h-32 lg:h-40 bg-white/10 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-5 sm:bottom-10 left-5 sm:left-10 w-20 sm:w-32 md:w-40 lg:w-48 h-20 sm:h-32 md:h-40 lg:h-48 bg-white/10 rounded-full blur-3xl"></div>
-          </div>
+        <section className="py-10 md:py-10 lg:py-8 relative overflow-hidden bg-[#b3deff] text-white">
 
-          <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-16 text-center relative z-10">
-            <Sparkles className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 2xl:w-20 2xl:h-20 text-white mx-auto mb-4 sm:mb-6 md:mb-8 animate-pulse" />
-            <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-white mb-4 sm:mb-6 md:mb-8 leading-tight px-2">
-              Ready to Start Your Learning Journey?
-            </h2>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl text-white/95 mb-6 sm:mb-8 md:mb-10 lg:mb-12 max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto leading-relaxed px-2">
-              Join thousands of successful students and take the first step towards achieving your goals
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 justify-center items-center px-4">
-              <Button href="/enrollment" variant="secondary" size="lg" className="w-full sm:w-auto bg-white text-[#2C3E50] hover:bg-gray-50 shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 text-sm sm:text-base md:text-lg lg:text-xl py-3 sm:py-4 md:py-5 px-6 sm:px-8 md:px-10">
-                <span className="flex items-center justify-center space-x-2">
-                  <span>Get Started Today</span>
-                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-                </span>
-              </Button>
-              <Button href="https://www.skillwins.in/" variant="outline" size="lg" className="w-full sm:w-auto bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-blue-900 hover:text-[#2C3E50] shadow-xl text-sm sm:text-base md:text-lg lg:text-xl py-3 sm:py-4 md:py-5 px-6 sm:px-8 md:px-10">
-                Login to LMS
-              </Button>
-            </div>
-          </div>
-        </section>
+  {/* subtle background glow */}
+  <div className="absolute inset-0 pointer-events-none">
+    <div className="absolute top-10 right-10 w-32 h-32 bg-white/15 rounded-full blur-3xl"></div>
+    <div className="absolute bottom-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-3xl"></div>
+  </div>
+
+  <div className="container mx-auto px-6 text-center relative z-10">
+    <Sparkles className="w-10 h-10 mx-auto mb-4 text-[#0d46a8] animate-pulse" />
+
+    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 leading-tight text-black">
+      Ready to Start Your Learning Journey?
+    </h2>
+
+    <p className="text-sm sm:text-base md:text-lg lg:text-xl text-black max-w-2xl mx-auto mb-8 leading-relaxed">
+      Join thousands of successful students and take the first step towards achieving your goals
+    </p>
+
+    <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+      <Button
+        href="/enrollment"
+        variant="secondary"
+        size="lg"
+        className="w-full sm:w-auto bg-white text-[#2C3E50] hover:bg-gray-50 
+        shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300
+        text-sm md:text-base px-8 py-3 rounded-lg"
+      >
+        <span className="flex items-center justify-center gap-2">
+          Get Started Today
+          <ArrowRight className="w-4 h-4" />
+        </span>
+      </Button>
+
+      <Button
+        href="https://www.skillwins.in/"
+        variant="outline"
+        size="lg"
+        className="w-full sm:w-auto bg-white/10 backdrop-blur-md border border-white/70 
+        text-black hover:bg-white hover:text-[#7ca9f7]
+        shadow-lg text-sm md:text-base px-8 py-3 rounded-lg"
+      >
+        Login to LMS
+      </Button>
+    </div>
+  </div>
+</section>
+
         {/* <ChatBot /> */}
       </main>
       <Footer />

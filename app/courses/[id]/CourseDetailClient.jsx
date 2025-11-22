@@ -68,48 +68,50 @@ export default function CourseDetailClient({ courseId }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <main className="min-h-screen  bg-gradient-to-br from-[#f9fafb] via-[#eef2ff] to-[#ffffff] text-gray-900 overflow-x-hidden">
+      <main className="min-h-screen bg-gradient-to-br from-[#f9fafb] via-[#eef2ff] to-[#ffffff] text-gray-900 overflow-x-hidden">
         
         {/* Hero Section */}
-        <section className="relative py-24 border-b border-gray-200 overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_rgba(255,255,255,0.8)_0%,_rgba(255,255,255,0)_100%)]"></div>
+        <section className="relative py-14 sm:py-20 lg:py-24 border-b border-gray-200 overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_rgba(255,255,255,0.85)_0%,_rgba(255,255,255,0)_100%)]" />
 
-          <div className="relative z-10 max-w-[1400px] mx-auto px-6 flex flex-col lg:flex-row gap-10 items-center">
+          <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 flex flex-col lg:flex-row gap-8 lg:gap-10 items-center">
             <div className="w-full lg:w-1/2 rounded-3xl overflow-hidden shadow-2xl bg-white/30 backdrop-blur-lg border border-white/50">
               <Image
                 src={course.image}
                 alt={course.title}
                 width={800}
                 height={500}
-                className="object-cover w-full h-full"
+                className="object-cover w-full h-[220px] sm:h-[320px] lg:h-full"
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 priority
               />
             </div>
 
             <div className="w-full lg:w-1/2">
-              <h1 className="text-4xl sm:text-5xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-black via-gray-700 to-gray-500">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-3 sm:mb-4 bg-clip-text text-transparent bg-gradient-to-r from-black via-gray-700 to-gray-500 leading-tight">
                 {course.title}
               </h1>
-              <p className="text-gray-700 text-lg mb-6">{course.description}</p>
+              <p className="text-gray-700 text-base sm:text-lg mb-5 sm:mb-6 leading-relaxed">
+                {course.description}
+              </p>
 
-              <div className="flex flex-wrap gap-4 text-sm sm:text-base bg-white/50 backdrop-blur-md rounded-xl p-4 border border-white/60 shadow-md">
-                <span className="flex items-center gap-2"><Timer className="w-5 h-5 text-gray-600" /> {course.duration}</span>
-                <span className="flex items-center gap-2"><Layers className="w-5 h-5 text-gray-600" /> {course.modules} modules</span>
-                <span className="flex items-center gap-2"><Gauge className="w-5 h-5 text-gray-600" /> {course.level}</span>
-                <span className="flex items-center gap-2"><Users className="w-5 h-5 text-gray-600" /> {course.students}+ Students</span>
+              <div className="grid grid-cols-2 gap-3 text-xs sm:text-sm lg:text-base bg-white/60 backdrop-blur-md rounded-xl p-3 sm:p-4 border border-white/60 shadow-md">
+                <span className="flex items-center gap-2"><Timer className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" /> {course.duration}</span>
+                <span className="flex items-center gap-2"><Layers className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" /> {course.modules} modules</span>
+                <span className="flex items-center gap-2"><Gauge className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" /> {course.level}</span>
+                <span className="flex items-center gap-2"><Users className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" /> {course.students}+ Students</span>
               </div>
 
-              <div className="mt-6 sm:mt-8 grid grid-cols-2 gap-4">
+              <div className="mt-6 sm:mt-7 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <Button
                   href={`/enrollment?courseId=${course.id}`}
-                  className="flex-1 bg-gradient-to-r from-[#ffd700] to-[#ffa500] text-black font-semibold py-3 rounded-xl border-2 border-black hover:shadow-lg hover:scale-105 transition-all"
+                  className="w-full bg-gradient-to-r from-[#ffd700] to-[#ffa500] text-black font-semibold py-3 rounded-xl border-2 border-black hover:shadow-lg hover:scale-[1.02] transition-all"
                 >
                   Enroll Now →
                 </Button>
                 <Button
                   href="/contact"
-                  className="flex-1 bg-white/50 text-black font-semibold py-3 rounded-xl border-2 border-black backdrop-blur-md hover:bg-white/80 hover:scale-105 transition-all"
+                  className="w-full bg-white/60 text-black font-semibold py-3 rounded-xl border-2 border-black backdrop-blur-md hover:bg-white/80 hover:scale-[1.02] transition-all"
                 >
                   Contact Instructor
                 </Button>
@@ -119,19 +121,19 @@ export default function CourseDetailClient({ courseId }) {
         </section>
 
         {/* Syllabus Section */}
-        <section className="py-16 sm:py-20 bg-white/60 backdrop-blur-md border-t border-b border-gray-200">
+        <section className="py-12 sm:py-16 lg:py-20 bg-white/60 backdrop-blur-md border-t border-b border-gray-200">
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
-            <h2 className="text-2xl sm:text-4xl font-bold mb-6 sm:mb-8 text-center">Course Syllabus</h2>
-            <div className="grid grid-cols-2 sm:grid-cols-2 gap-5 sm:gap-8">
+            <h2 className="text-2xl sm:text-4xl font-bold mb-5 sm:mb-8 text-center">Course Syllabus</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
               {course.syllabus?.map((item, idx) => (
                 <div
                   key={idx}
-                  className="flex items-start gap-3 sm:gap-4 p-4 sm:p-5 rounded-2xl bg-white/70 backdrop-blur-sm border border-white/60 shadow-md hover:shadow-lg transition-all"
+                  className="flex items-start gap-3 sm:gap-4 p-4 sm:p-5 rounded-2xl bg-white/80 backdrop-blur-sm border border-white/60 shadow-md hover:shadow-lg transition-all"
                 >
                   <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-green-600 mt-1" />
                   <div>
                     <h3 className="font-semibold text-base sm:text-lg mb-1">{item.title}</h3>
-                    <p className="text-gray-700 text-sm leading-relaxed">{item.description}</p>
+                    <p className="text-gray-700 text-sm sm:text-base leading-relaxed">{item.description}</p>
                   </div>
                 </div>
               ))}
@@ -140,10 +142,10 @@ export default function CourseDetailClient({ courseId }) {
         </section>
 
         {/* Instructor Section */}
-        <section className="py-24 bg-gradient-to-br from-[#eef2ff] to-[#ffffff] text-center">
-          <div className="max-w-[900px] mx-auto px-6">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6">Meet Your Instructor</h2>
-            <div className="bg-white/50 backdrop-blur-lg border border-white/60 rounded-3xl p-8 shadow-xl inline-block">
+        <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-[#eef2ff] to-[#ffffff] text-center">
+          <div className="max-w-[900px] mx-auto px-4 sm:px-6">
+            <h2 className="text-2xl sm:text-4xl font-bold mb-6">Meet Your Instructor</h2>
+            <div className="bg-white/60 backdrop-blur-lg border border-white/60 rounded-3xl p-6 sm:p-8 shadow-xl inline-block w-full sm:w-auto">
               <Image
                 src={course.instructor?.image || '/instructor-placeholder.jpg'}
                 alt={course.instructor?.name || 'Instructor'}
@@ -152,8 +154,8 @@ export default function CourseDetailClient({ courseId }) {
                 className="rounded-full mx-auto mb-4 object-cover"
                 sizes="120px"
               />
-              <h3 className="text-xl font-semibold">{course.instructor?.name}</h3>
-              <p className="text-gray-700">{course.instructor?.bio}</p>
+              <h3 className="text-lg sm:text-xl font-semibold">{course.instructor?.name}</h3>
+              <p className="text-gray-700 text-sm sm:text-base px-2">{course.instructor?.bio}</p>
               <div className="flex justify-center mt-4">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-5 h-5 text-yellow-500 fill-yellow-500" />
@@ -164,10 +166,10 @@ export default function CourseDetailClient({ courseId }) {
         </section>
 
         {/* CTA Section */}
-        <section className="py-24 bg-gradient-to-b from-white via-[#eef2ff] to-white text-center">
+        <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-white via-[#eef2ff] to-white text-center">
           <div className="max-w-[1200px] mx-auto px-4">
-            <h2 className="text-4xl font-extrabold mb-4">Start Your Journey Today</h2>
-            <p className="text-gray-700 mb-8 text-lg">
+            <h2 className="text-3xl sm:text-4xl font-extrabold mb-4">Start Your Journey Today</h2>
+            <p className="text-gray-700 mb-8 text-base sm:text-lg">
               Enroll now and get lifetime access to all modules, updates, and mentor support.
             </p>
             <Button

@@ -79,7 +79,7 @@ export default function PartnerMarquee({ edge = "both" }) {
       >
         <div ref={marqueeRef} className="flex gap-6 sm:gap-8 md:gap-10 will-change-transform">
           {[...logos, ...logos].map((logo, i) => (
-            <div key={i} className="flex-shrink-0 w-24 h-12 sm:w-28 sm:h-14 md:w-32 md:h-16 relative">
+            <div key={i} className="flex-shrink-0 lg:h-[100px] w-24 h-12 sm:w-28 sm:h-14 md:w-32 md:h-16 relative">
               <Image src={logo.src} alt={logo.alt} fill className="object-contain" />
             </div>
           ))}

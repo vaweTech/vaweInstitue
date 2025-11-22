@@ -5,7 +5,10 @@ export default function Card({
   hoverable = false,
   gradient = false,
   glowing = false,
-  glass = true 
+  glass = true,
+  accentColor,
+  style = {},
+  ...rest
 }) {
   const baseStyles = 'glass-card glass-reflection glass-hover rounded-3xl overflow-hidden relative group';
   
@@ -30,8 +33,16 @@ export default function Card({
     ? 'hover:shadow-glow-blue' 
     : '';
 
+  const accentVars = accentColor ? { '--card-accent': accentColor } : {};
+  const accentHover = accentColor ? 'hover:[border-color:var(--card-accent)]' : '';
+  const inlineStyle = { ...accentVars, ...style };
+
   return (
-    <div className={`${baseStyles} ${variants[variant]} ${hoverStyles} ${gradientBorder} ${glowEffect} ${className}`}>
+    <div
+      className={`${baseStyles} ${variants[variant]} ${hoverStyles} ${gradientBorder} ${glowEffect} ${accentHover} ${className}`}
+      style={inlineStyle}
+      {...rest}
+    >
       {/* Enhanced glass reflection effect */}
       {glass && (
         <>

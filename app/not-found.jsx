@@ -11,7 +11,7 @@ export default function NotFound() {
             </div>
             <div className="md:mt-[10px] md:mb-[250px] contant_box_404 text-center">
               <h3 className="text-2xl md:text-3xl font-semibold mb-3 text-gray-900">
-                Look like you're lost
+                Look like you&apos;re lost
               </h3>
               <p className="text-gray-600 mb-6">
                 The page you are looking for is not available!

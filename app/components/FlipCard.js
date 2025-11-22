@@ -1,12 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import {
   Clock,
   TrendingUp,
-  Users,
-  Star,
-  ArrowRight,
   CheckCircle2,
   Zap,
   Code,
@@ -22,12 +20,10 @@ export default function FlipCard({ course, className = "", variant = "default" }
   const iconMap = { Code, BarChart3, Megaphone, Briefcase };
   const Icon = iconMap[course.iconName] || Code;
 
+  const singleBorderStyle =
+    "border-t-[5px] border-[#221d55] hover:border-t-[7px] hover:shadow-[#f89e2b]/30";
   const variants = {
-    default: "border-t-[5px] border-[var(--navbar-hero)]/60 hover:border-t-[7px] hover:shadow-[var(--navbar-hero)]/30",
-    blue: "border-t-[5px] border-blue-400/60 hover:border-t-[7px] hover:shadow-blue-400/30",
-    pink: "border-t-[5px] border-pink-400/60 hover:border-t-[7px] hover:shadow-pink-400/30",
-    yellow: "border-t-[5px] border-yellow-400/60 hover:border-t-[7px] hover:shadow-yellow-400/30",
-    green: "border-t-[5px] border-green-400/60 hover:border-t-[7px] hover:shadow-green-400/30",
+    default: singleBorderStyle,
   };
 
   return (
@@ -44,22 +40,36 @@ export default function FlipCard({ course, className = "", variant = "default" }
       >
         {/* Front Side */}
         <div
-          className={`absolute inset-0 w-full h-full backface-hidden ${variants[variant]} rounded-2xl overflow-hidden bg-white shadow-lg`}
+          className={`absolute inset-0 w-full h-full backface-hidden ${
+            variants[variant] || variants.default
+          } rounded-2xl overflow-hidden bg-white shadow-lg`}
         >
-          <div className="relative z-10 p-6 h-full flex flex-col justify-center items-center text-center">
-            <div className="w-16 h-16 rounded-xl bg-[#38328E] flex items-center justify-center mb-4 transition-transform duration-300">
-              <Icon className="w-8 h-8 text-white" />
+          <div className="relative z-10 p-6 h-full flex flex-col text-left">
+            <div className="relative w-full h-48 sm:h-52 rounded-3xl overflow-hidden mb-6 shadow-2xl border border-white/40">
+              {course.image ? (
+                <Image
+                  src={course.image}
+                  alt={`${course.title} illustration`}
+                  fill
+                  sizes="320px"
+                  className="object-cover scale-105 transition-transform duration-700"
+                />
+              ) : (
+                <div className="w-full h-full bg-[#f89e2b] flex items-center justify-center">
+                  <Icon className="w-16 h-16 text-white" />
+                </div>
+              )}
             </div>
 
-            <h3 className="text-xl font-bold text-[var(--text)] mb-2">{course.title}</h3>
-            <p className="text-gray-600 text-base mb-4">{course.description}</p>
+            <h3 className="text-2xl font-bold text-[var(--text)] mb-3">{course.title}</h3>
+            <p className="text-gray-600 text-base sm:text-lg mb-5 flex-1">{course.description}</p>
 
-            <div className="space-y-2 text-gray-500 text-xm">
-              <div className="flex items-center justify-center">
+            <div className="space-y-2 text-gray-500 text-sm">
+              <div className="flex items-center">
                 <Clock className="w-4 h-4 mr-2 text-[#A8DADC]" />
                 <span>{course.duration}</span>
               </div>
-              <div className="flex items-center justify-center">
+              <div className="flex items-center">
                 <TrendingUp className="w-4 h-4 mr-2 text-[#F4A7B9]" />
                 <span>{course.level}</span>
               </div>
@@ -69,13 +79,25 @@ export default function FlipCard({ course, className = "", variant = "default" }
 
         {/* Back Side */}
         <div
-          className={`absolute inset-0 w-full h-full backface-hidden rotate-y-180 ${variants[variant]} rounded-2xl overflow-hidden bg-white shadow-lg`}
+          className={`absolute inset-0 w-full h-full backface-hidden rotate-y-180 ${
+            variants[variant] || variants.default
+          } rounded-2xl overflow-hidden bg-white shadow-lg`}
         >
           <div className="relative z-10 p-6 h-full flex flex-col justify-between">
             <div>
               <div className="flex items-center mb-4">
-                <div className="w-12 h-12 rounded-xl bg-[var(--navbar-hero)] flex items-center justify-center mr-3 shadow-lg">
-                  <Icon className="w-6 h-6 text-white" />
+                <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-[var(--navbar-hero)] flex items-center justify-center mr-3 shadow-lg">
+                  {course.image ? (
+                    <Image
+                      src={course.image}
+                      alt={`${course.title} thumbnail`}
+                      fill
+                      sizes="48px"
+                      className="object-cover"
+                    />
+                  ) : (
+                    <Icon className="w-6 h-6 text-white" />
+                  )}
                 </div>
                 <h3 className="text-xl font-bold text-[var(--text)]">{course.title}</h3>
               </div>

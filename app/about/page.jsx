@@ -54,25 +54,29 @@ export default function About() {
       Icon: Trophy,
       title: 'Excellence',
       description: 'We are committed to delivering the highest quality education and training experiences',
-      color: 'from-[#A8DADC] to-[#8fc9cc]'
+      color: '#00C4CC',
+      variant: 'blue'
     },
     {
       Icon: Heart,
       title: 'Accessibility',
       description: 'Making quality education accessible to everyone, regardless of background or location',
-      color: 'from-[#F4A7B9] to-[#f298ad]'
+      color: '#FF5C8A',
+      variant: 'pink'
     },
     {
       Icon: Lightbulb,
       title: 'Innovation',
       description: 'Constantly evolving our methods and curriculum to stay ahead of industry trends',
-      color: 'from-[#FFF3B0] to-[#ffe89a]'
+      color: '#FFD447',
+      variant: 'yellow'
     },
     {
       Icon: Users,
       title: 'Student Success',
       description: 'Your success is our success. We measure our impact by your achievements',
-      color: 'from-[#C1E1C1] to-[#a8d1a8]'
+      color: '#00D97E',
+      variant: 'green'
     }
   ];
 
@@ -88,43 +92,50 @@ export default function About() {
       Icon: TrendingUp,
       title: 'Trainings',
       description:
-        'Trainings are designed and delivered with the aim of developing skilled professionals and increasing employment by keeping learners abreast of technology and necessary skills.'
+        'Trainings are designed and delivered with the aim of developing skilled professionals and increasing employment by keeping learners abreast of technology and necessary skills.',
+      color: '#00C4CC'
     },
     {
       Icon: Award,
       title: 'Certifications',
       description:
-        'We offer professional certifications that cover major domains through Pearson VUE. These certifications are recognized worldwide as a standard for IT quality professionals.'
+        'We offer professional certifications that cover major domains through Pearson VUE. These certifications are recognized worldwide as a standard for IT quality professionals.',
+      color: '#FF5C8A'
     },
     {
       Icon: Lightbulb,
       title: 'Projects',
       description:
-        'We encourage and support students who come up with innovative ideas, helping them analyze, design, code, test, and implement in different technologies.'
+        'We encourage and support students who come up with innovative ideas, helping them analyze, design, code, test, and implement in different technologies.',
+      color: '#FFD447'
     },
     {
       Icon: Calendar,
       title: 'Workshops',
       description:
-        'We provide workshops on various technologies led by industry experts, with a strong focus on hands-on experience.'
+        'We provide workshops on various technologies led by industry experts, with a strong focus on hands-on experience.',
+      color: '#00D97E'
     },
     {
       Icon: Rocket,
       title: 'CRT',
       description:
-        'Our Campus Recruitment Training (CRT) is value-added through associations like AMCAT and Pearson, enabling our students to kick-start their careers.'
+        'Our Campus Recruitment Training (CRT) is value-added through associations like AMCAT and Pearson, enabling our students to kick-start their careers.',
+      color: '#7C4DFF'
     },
     {
       Icon: Target,
       title: 'Placements',
       description:
-        'Placement assistance is a major edge of our services; we provide employability testing and skill certification platforms to increase job opportunities for our students.'
+        'Placement assistance is a major edge of our services; we provide employability testing and skill certification platforms to increase job opportunities for our students.',
+      color: '#FF8C42'
     },
     {
       Icon: Globe,
       title: 'Internships',
       description:
-        'We also provide internships that give students real-world exposure and practical experience on industry projects.'
+        'We also provide internships that give students real-world exposure and practical experience on industry projects.',
+      color: '#2D98DA'
     }
   ];
 
@@ -199,7 +210,7 @@ export default function About() {
       <main className="min-h-screen">
         {/* Page Header */}
         <section
-          className="py-20 md:py-28 relative overflow-hidden"
+          className="py-20 md:py-28 lg:mt-[-90px] relative overflow-hidden"
           style={{ backgroundColor: 'var(--navbar-hero)' }}
         >
           {/* Background decoration */}
@@ -257,52 +268,7 @@ export default function About() {
         {/* <BulkTrainingUploader /> */}
 
         {/* Mission Section */}
-        <section
-          className="py-24"
-          style={{
-            backgroundColor: 'var(--background)',
-            backgroundImage:
-              'linear-gradient(rgba(255,255,255,0.94), rgba(255,255,255,0.94)), url(/favicon.ico)',
-            backgroundRepeat: 'repeat',
-            backgroundSize: '64px 64px',
-          }}
-        >
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-5xl mx-auto">
-              <div className="text-center mb-16 animate-slide-up">
-                <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full mb-4" style={{ backgroundColor: 'rgba(0,0,0,0.05)' }}>
-                  <Target className="w-4 h-4" style={{ color: 'var(--text)' }} />
-                  <span className="text-sm font-medium" style={{ color: 'var(--text)' }}>Our Mission</span>
-                </div>
-                <h2 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: 'var(--text)' }}>
-                  Transforming Lives Through Education
-                </h2>
-                <p className="text-xl leading-relaxed max-w-3xl mx-auto" style={{ color: 'color-mix(in oklab, var(--text) 70%, transparent)' }}>
-                  At VAWE Institute, our mission is to democratize quality education and make 
-                  professional training accessible to everyone. We believe that learning should 
-                  be engaging, practical, and relevant to real-world challenges.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
-                {achievements.map((achievement, index) => {
-                  const Icon = achievement.Icon;
-                  return (
-                    <div key={index} className="text-center group animate-slide-up" style={{ animationDelay: `${index * 100}ms` }}>
-                      <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-[#A8DADC] to-[#F4A7B9] flex items-center justify-center mx-auto mb-4 shadow-xl group-hover:shadow-2xl group-hover:scale-110 transition-all duration-300">
-                        <Icon className="w-10 h-10 text-white" />
-                      </div>
-                      <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#A8DADC] to-[#F4A7B9] bg-clip-text text-transparent mb-2">
-                        {achievement.number}
-                      </div>
-                      <div className="font-medium text-lg" style={{ color: 'color-mix(in oklab, var(--text) 70%, transparent)' }}>{achievement.label}</div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        </section>
+        
 
         {/* Values Section */}
         <section
@@ -329,17 +295,27 @@ export default function About() {
               {values.map((value, index) => {
                 const Icon = value.Icon;
                 return (
-                  <Card key={index} variant={value.color.includes('A8DADC') ? 'blue' : value.color.includes('F4A7B9') ? 'pink' : value.color.includes('FFF3B0') ? 'yellow' : 'green'} hoverable className="animate-slide-up" style={{ animationDelay: `${index * 100}ms` }}>
+                  <Card
+                    key={index}
+                    variant={value.variant}
+                    hoverable
+                    accentColor={value.color}
+                    className="animate-slide-up"
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
                     <CardHeader>
-                      <div className={`w-10 h-10 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br ${value.color} flex items-center justify-center mb-4 shadow-lg`}>
-                        <Icon className="w-8 h-8 text-white" />
+                      <div
+                        className="w-10 h-10 md:w-16 md:h-16 rounded-2xl flex items-center justify-center mb-4 shadow-lg"
+                        style={{ backgroundColor: value.color }}
+                      >
+                        <Icon className="w-8 h-8 " />
                       </div>
-                      <h3 className="text-sm md:text-xl font-bold mb-2" style={{ color: 'var(--text)' }}>
+                      <h3 className="text-sm md:text-xl font-bold mb-2 text-black">
                         {value.title}
                       </h3>
                     </CardHeader>
                     <CardBody>
-                      <p className="leading-relaxed" style={{ color: 'color-mix(in oklab, var(--text) 70%, transparent)' }}>{value.description}</p>
+                      <p className="leading-relaxed text-black" >{value.description}</p>
                     </CardBody>
                   </Card>
                 );
@@ -378,19 +354,23 @@ export default function About() {
                     key={index}
                     variant={variant}
                     hoverable
+                    accentColor={service.color}
                     className="animate-slide-up"
                     style={{ animationDelay: `${index * 80}ms` }}
                   >
                     <CardHeader>
-                      <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-white/60 to-white/30 flex items-center justify-center mb-4 shadow-lg">
-                        <Icon className="w-8 h-8" style={{ color: 'var(--text)' }} />
+                      <div
+                        className="w-16 h-16 rounded-2xl flex items-center justify-center mb-4 shadow-lg"
+                        style={{ backgroundColor: service.color }}
+                      >
+                        <Icon className="w-8 h-8 text-white" />
                       </div>
-                      <h3 className="text-xl font-bold mb-2" style={{ color: 'var(--text)' }}>
+                      <h3 className="text-xl font-bold mb-2 text-black" >
                         {service.title}
                       </h3>
                     </CardHeader>
                     <CardBody>
-                      <p className="leading-relaxed" style={{ color: 'color-mix(in oklab, var(--text) 70%, transparent)' }}>
+                      <p className="leading-relaxed text-black" >
                         {service.description}
                       </p>
                     </CardBody>
@@ -402,64 +382,51 @@ export default function About() {
         </section>
 
         {/* Founder Section */}
-        <section
-          className="py-24"
-          style={{
-            backgroundColor: 'var(--background)',
-            backgroundImage:
-              'linear-gradient(rgba(255,255,255,0.96), rgba(255,255,255,0.96)), url(/favicon.ico)',
-            backgroundRepeat: 'repeat',
-            backgroundSize: '64px 64px',
-          }}
-        >
-          <div className="container mx-auto px-4 sm:px-6 lg:px-10">
-            <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="relative order-2 lg:order-1">
-                <div className="absolute -top-6 -left-6 w-20 h-20 rounded-3xl bg-gradient-to-br from-[#A8DADC] to-[#F4A7B9] blur-3xl opacity-70"></div>
-                <div className="relative rounded-[32px] overflow-hidden shadow-2xl border border-white/40">
-                  <Image
-                    src="/assets/BB.png"
-                    alt="Bala Balaji N - Founder & Director, VAWE Institute"
-                    width={720}
-                    height={840}
-                    className="object-cover w-full h-full"
-                  />
-                </div>
-              </div>
-              <div className="space-y-6 order-1 lg:order-2">
-                <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-white/70 shadow-sm border border-gray-100">
-                  <Quote className="w-4 h-4 text-[#dc9454]" />
-                  <span className="text-sm font-semibold tracking-wide text-gray-700">Founder’s Note</span>
-                </div>
-                <h2 className="text-4xl md:text-5xl font-bold" style={{ color: 'var(--text)' }}>
-                  Bala Balaji N
-                </h2>
-                <p className="text-lg font-semibold text-blue-700">Founder & Director, VAWE Institute</p>
-                <p className="text-lg leading-relaxed" style={{ color: 'color-mix(in oklab, var(--text) 75%, transparent)' }}>
-                  “Education is a promise we renew every day — a promise to uplift minds, create opportunities, 
-                  and build a future where talent meets purpose. VAWE began with a single classroom and a bold dream: 
-                  to make world-class learning reachable to every learner, everywhere.”
-                </p>
-                <p className="text-lg leading-relaxed" style={{ color: 'color-mix(in oklab, var(--text) 75%, transparent)' }}>
-                  Bala Balaji has spent the last decade architecting transformative learning journeys, collaborating 
-                  with global partners, and mentoring thousands of students into confident professionals. His vision 
-                  continues to shape VAWE’s culture of warmth, excellence, and relentless innovation.
-                </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-                  <div className="p-4 rounded-2xl bg-white shadow-lg border border-gray-100">
-                    <p className="text-sm text-gray-500 mb-1">Guiding Principle</p>
-                    <p className="font-semibold text-gray-900">“Every learner deserves a launchpad.”</p>
-                  </div>
-                  <div className="p-4 rounded-2xl bg-white shadow-lg border border-gray-100">
-                    <p className="text-sm text-gray-500 mb-1">Focus Areas</p>
-                    <p className="font-semibold text-gray-900">Future skills · Mentorship · Industry bridges</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <section className="relative w-full py-20 px-6 overflow-hidden">
 
+{/* Gradient Aura Background */}
+<div className="absolute inset-0 -z-10 bg-gradient-to-b from-blue-50 to-white"></div>
+<div className="absolute -top-32 -left-32 w-72 h-72 rounded-full bg-blue-300 opacity-20 blur-[120px]"></div>
+<div className="absolute bottom-0 right-0 w-72 h-72 rounded-full bg-purple-300 opacity-20 blur-[120px]"></div>
+
+<div className="max-w-3xl mx-auto">
+
+  {/* Glass Card */}
+  <div className="backdrop-blur-md bg-white/40 border border-white/30 shadow-xl rounded-2xl p-10 space-y-8">
+
+    {/* Heading */}
+    <h2 className="text-center text-4xl font-bold text-gray-900 tracking-tight">
+      Founder's Message
+    </h2>
+
+    {/* Quotation */}
+    <p className="text-xl text-gray-800 italic text-center font-medium leading-relaxed">
+      “Every skill you master becomes a stairway to a future you once dreamed of.
+      Grow daily — your potential is limitless.”
+    </p>
+
+    {/* Founder Info */}
+    <div className="pt-4 text-center space-y-2">
+      <h3 className="text-2xl font-semibold text-gray-900">
+        Bala Balaji N
+      </h3>
+      <p className="text-gray-700 text-sm">
+        Founder & Chief Mentor
+      </p>
+    </div>
+
+    {/* Divider Line */}
+    <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
+
+    {/* Description */}
+    <p className="text-gray-700 text-center leading-relaxed">
+      Bala Balaji N created this institute with a mission to make skill development accessible,
+      practical, and inspiring. His belief is simple — when students learn with passion
+      and consistency, their growth becomes unstoppable.
+    </p>
+  </div>
+</div>
+</section>
         {/* Team Section */}
         <section
           className="py-24"

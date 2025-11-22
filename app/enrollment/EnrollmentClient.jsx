@@ -240,7 +240,7 @@ export default function EnrollmentClient() {
                 </div>
                 <h1 className="text-3xl font-bold mb-2 text-gray-900">Enrollment Successful!</h1>
                 <p className="text-gray-700 mb-6">
-                  Thanks, {formData.firstName || 'Learner'}! We'll email you the next steps shortly.
+                  Thanks, {formData.firstName || 'Learner'}! We&apos;ll email you the next steps shortly.
                 </p>
                 {formData.course && (
                   <div className="mb-6 text-gray-800">
