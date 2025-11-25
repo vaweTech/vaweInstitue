@@ -431,59 +431,7 @@ export default function Home() {
   
         <Strengths />
 
-        <section className="py-16 sm:py-20 lg:py-24" style={{ backgroundColor: 'var(--background)' }}>
-          <div className="container mx-auto px-4 sm:px-6 lg:px-12">
-            <div className="grid gap-12 lg:grid-cols-2 items-center">
-              <div>
-                <p className="text-sm sm:text-base md:text-lg text-gray-600 uppercase tracking-wide mb-3">
-                  Vijayawada&apos;s trusted software finishing school since 2015
-                </p>
-                <h2 className="text-3xl sm:text-4xl font-bold text-[var(--text)] mb-6 leading-tight">
-                  Why VAWE Institute leads Vijayawada&apos;s software training space
-                </h2>
-                <p className="text-base sm:text-lg text-gray-600">
-                  Our Vijayawada campus powers Andhra Pradesh with career-focused programs in full-stack development,
-                  cloud, AI, data science, and digital marketing. Every cohort is mentored by industry experts who understand
-                  Vijayawada hiring challenges and align projects to regional opportunities.
-                </p>
-                <div className="mt-8 space-y-6">
-                  {vijayawadaHighlights.map((item, index) => (
-                    <div key={item.title} className="flex items-start gap-4">
-                      <div
-                        className="mt-1 w-3 h-3 rounded-full"
-                        style={{ backgroundColor: index === 0 ? '#0A1A76' : index === 1 ? '#F97316' : '#0EA5E9' }}
-                      />
-                      <div>
-                        <h3 className="text-xl font-semibold text-[var(--text)]">{item.title}</h3>
-                        <p className="text-gray-600">{item.description}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="bg-white/90 backdrop-blur rounded-3xl shadow-xl p-8 border border-gray-100">
-                <div className="inline-flex items-center px-3 py-1 text-xs font-semibold uppercase tracking-widest rounded-full bg-blue-50 text-blue-600">
-                  Vijayawada Rankings
-                </div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-[var(--text)] mt-4">
-                  Best Software Training Institute in Vijayawada
-                </h3>
-                <p className="text-gray-600 mt-3">
-                  2500+ aspirants chose VAWE Institute for project-based learning, government-aligned certifications, and
-                  job placement assistance across Vijayawada, Hyderabad, and Bangalore.
-                </p>
-                <div className="grid grid-cols-2 gap-4 mt-8">
-                  {stats.map((stat) => (
-                    <div key={stat.label} className="rounded-2xl border border-gray-100 p-4 text-center shadow-sm">
-                      <span className="text-3xl font-bold text-[#0A1A76]">{stat.number}</span>
-                      <p className="mt-1 text-sm text-gray-500">{stat.label}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+
 
         {/* Testimonials Section */}
         <section className="py-8  sm:py-12 md:py-20 lg:mb-[-100px] lg:py-24  xl:py-32 2xl:py-40 relative overflow-hidden" style={{ backgroundColor: 'var(--background-alt)' }}>
@@ -559,39 +507,6 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-16 sm:py-20 lg:py-24" style={{ backgroundColor: 'var(--background)' }}>
-          <div className="container mx-auto px-4 sm:px-6 lg:px-12">
-            <div className="max-w-3xl mx-auto text-center mb-12">
-              <p className="text-xs font-semibold tracking-[0.3em] uppercase text-[#0A1A76]">
-                FAQs for Vijayawada learners
-              </p>
-              <h2 className="text-3xl sm:text-4xl font-bold text-[var(--text)] mt-2">
-                Everything about VAWE Institute&apos;s software training
-              </h2>
-              <p className="text-gray-600 mt-4">
-                Clear answers to the most common questions we hear from students, graduates, and working professionals in
-                and around Vijayawada who want to upskill with job-ready software courses.
-              </p>
-            </div>
-            <div className="max-w-4xl mx-auto space-y-4">
-              {faqContent.map((faq) => (
-                <details
-                  key={faq.question}
-                  className="group border border-gray-200 rounded-2xl bg-white/90 shadow-sm p-5 open:shadow-md transition-shadow"
-                >
-                  <summary className="flex items-center justify-between cursor-pointer text-left">
-                    <span className="text-lg font-semibold text-[var(--text)]">{faq.question}</span>
-                    <span className="ml-4 text-2xl font-bold text-[#0A1A76] transition-transform duration-200 group-open:rotate-45">
-                      +
-                    </span>
-                  </summary>
-                  <p className="mt-3 text-gray-600 leading-relaxed">{faq.answer}</p>
-                </details>
-              ))}
             </div>
           </div>
         </section>
