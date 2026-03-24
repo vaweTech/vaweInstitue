@@ -1,7 +1,18 @@
 import Link from "next/link";
-import { CheckCircle2, ArrowRight, Sparkles, Building, Users, Briefcase } from "lucide-react";
+import {
+  CheckCircle2,
+  ArrowRight,
+  Sparkles,
+  Building,
+  Users,
+  Briefcase,
+  GraduationCap,
+  FolderKanban,
+  BadgeCheck,
+  Presentation,
+  Target,
+} from "lucide-react";
 import PartnerMarquee from "../components/PartnerMarquee";
-import { servicesDetails } from "./data";
 
 const breadcrumbs = [
   { label: "Home", href: "/" },
@@ -38,6 +49,84 @@ const processSteps = [
   { title: "Deliver", detail: "Blended execution with live, self-paced, and lab components." },
   { title: "Deploy", detail: "Assessments, projects, certifications, and placement drives." },
   { title: "Delight", detail: "Feedback loops, analytics, and continuous improvement." },
+];
+
+const offerings = [
+  {
+    id: "internships",
+    name: "Internships",
+    heroTagline: "Real-time work experience",
+    summary: "Work-integrated internships with mentorship, sprints, reviews and portfolio-ready proof of work.",
+    highlights: ["Hybrid pods & daily rituals", "Real-time project modules", "Mentor reviews & showcases"],
+    cta: { label: "Explore Internships", href: "/internship" },
+    icon: Briefcase,
+    accent: "from-[#2563EB] to-[#06B6D4]",
+  },
+  {
+    id: "courses",
+    name: "Courses & Trainings",
+    heroTagline: "Job-ready learning paths",
+    summary: "Career-aligned courses in Full-Stack, Data, AI/ML, Java, Web Development and more.",
+    highlights: ["Beginner → Advanced tracks", "Hands-on labs & projects", "Industry-aligned curriculum"],
+    cta: { label: "Browse Courses", href: "/courses" },
+    icon: GraduationCap,
+    accent: "from-[#7C3AED] to-[#2563EB]",
+  },
+  {
+    id: "projects",
+    name: "Real-time Projects",
+    heroTagline: "Build proof-of-work",
+    summary: "Work on guided projects that mirror production flows: requirements → sprints → QA → delivery.",
+    highlights: ["Capstones & mini-projects", "GitHub-ready repos", "Demo days & feedback loops"],
+    cta: { label: "See Projects", href: "/academic-projects" },
+    icon: FolderKanban,
+    accent: "from-[#0EA5E9] to-[#10B981]",
+  },
+  {
+    id: "certifications",
+    name: "Certifications",
+    heroTagline: "IBM + Microsoft + Bosch",
+    summary: "Certification tracks with structured prep, assessments, and official proof to showcase your skills.",
+    highlights: ["IBM SkillsBuild tracks", "Microsoft technology pathways", "Bosch-aligned modules"],
+    cta: { label: "Explore Certifications", href: "/certifications" },
+    icon: BadgeCheck,
+    accent: "from-[#F97316] to-[#F59E0B]",
+  },
+  {
+    id: "workshops",
+    name: "Workshops",
+    heroTagline: "Fast skill boosts",
+    summary: "Short, high-impact workshops for colleges, companies, and learner communities.",
+    highlights: ["Weekend formats", "Hands-on challenges", "Certificates & takeaways"],
+    cta: { label: "View Workshops", href: "/services#workshops" },
+    icon: Presentation,
+    accent: "from-[#22C55E] to-[#14B8A6]",
+  },
+  {
+    id: "placements",
+    name: "CRT & Placements",
+    heroTagline: "Interview-ready outcomes",
+    summary: "Campus recruitment training, aptitude, communication, mock interviews and placement support.",
+    highlights: ["Aptitude + soft skills", "Resume & LinkedIn support", "Interview practice"],
+    cta: { label: "Placement Support", href: "/services" },
+    icon: Target,
+    accent: "from-[#EF4444] to-[#A855F7]",
+  },
+];
+
+const highlightStats = [
+  { value: "Internships", label: "Real-time pods & mentorship" },
+  { value: "Courses", label: "Career-aligned pathways" },
+  { value: "Projects", label: "Proof-of-work portfolios" },
+  { value: "Certifications", label: "IBM · Microsoft · Bosch" },
+];
+
+const certificationShowcase = [
+  { title: "IBM SkillsBuild Certificate", tags: ["IBM", "Cloud", "AI"] },
+  { title: "Microsoft Technology Certificate", tags: ["Microsoft", "Azure", "Productivity"] },
+  { title: "Bosch Global Skill Certification", tags: ["Bosch", "Automation", "Professional"] },
+  { title: "VAWE Institute Excellence Certificate", tags: ["VAWE", "Internship", "Excellence"] },
+  { title: "VAWE Completion Certificate", tags: ["VAWE", "Course", "Completion"] },
 ];
 
 const faqs = [
@@ -141,151 +230,136 @@ export default function ServicesPage() {
             <div className="p-5 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-lg">
               <p className="text-sm uppercase tracking-wide font-semibold text-white/80">Need a custom stack?</p>
               <p className="text-lg font-semibold mt-2">We design bespoke learning interventions for universities & enterprises.</p>
-              <p className="text-sm text-white/80 mt-1">Drop a note to partnerships@vawe.in or call +91-998-877-6655</p>
+              <p className="text-sm text-white/80 mt-1">Drop a note to vawe.info@gmail.com or call 8885103333</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Engagement Models */}
-      <section className="px-4 sm:px-6 lg:px-12 xl:px-16 pb-12">
+      {/* What we provide */}
+      <section className="px-4 sm:px-6 lg:px-12 xl:px-16 pb-14">
         <div className="max-w-6xl mx-auto space-y-8">
-          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
             <div>
-              <p className="text-xs font-semibold text-blue-600 uppercase tracking-wide">Engagement Models</p>
-              <h2 className="text-2xl font-bold text-gray-900 mt-1">Tailored experiences for every stakeholder</h2>
+              <p className="text-xs font-semibold text-blue-600 uppercase tracking-wide">What we provide</p>
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mt-1">
+                Internships, Courses, Projects, Certifications and more
+              </h2>
             </div>
-            <p className="text-sm text-gray-500 max-w-lg">
-              Pick the track that fits your charter—campus programs, corporate upskilling, or individual accelerators. We plug into your context.
+            <p className="text-sm text-gray-600 max-w-2xl">
+              Everything is designed to be outcome-driven: build proof of work, earn certifications, and get placement-ready with CRT support.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-5">
-            {engagementModels.map((model) => (
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {highlightStats.map((stat) => (
               <div
-                key={model.title}
-                className="rounded-3xl border border-gray-100 bg-white p-6 shadow-sm hover:shadow-lg transition-shadow"
+                key={stat.value}
+                className="rounded-2xl border border-blue-100 bg-gradient-to-br from-white to-blue-50/30 p-4 shadow-sm"
               >
-                <div className="w-12 h-12 rounded-2xl bg-blue-600/10 text-blue-700 flex items-center justify-center mb-4">
-                  <model.icon className="w-5 h-5" />
+                <p className="text-sm sm:text-base font-bold text-gray-900">{stat.value}</p>
+                <p className="text-xs text-gray-600 mt-1">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {offerings.map((item) => (
+              <div
+                key={item.id}
+                className="group rounded-3xl border border-gray-100 bg-white p-6 shadow-sm hover:shadow-2xl transition-shadow overflow-hidden relative"
+              >
+                <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${item.accent}`} />
+
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex items-start gap-4">
+                    <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${item.accent} text-white flex items-center justify-center shadow-md`}>
+                      <item.icon className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold text-blue-600 uppercase tracking-wide">{item.heroTagline}</p>
+                      <h3 className="text-xl font-semibold text-gray-900 mt-1">{item.name}</h3>
+                    </div>
+                  </div>
+                  <span className="hidden sm:inline-flex px-3 py-1 rounded-full text-xs font-semibold bg-gray-50 border border-gray-100 text-gray-700">
+                    VAWE
+                  </span>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900">{model.title}</h3>
-                <p className="text-sm text-gray-600 mt-2">{model.description}</p>
+
+                <p className="text-sm text-gray-600 mt-3 leading-relaxed">{item.summary}</p>
+
                 <ul className="mt-4 space-y-2 text-sm text-gray-700">
-                  {model.points.map((point) => (
+                  {item.highlights.map((point) => (
                     <li key={point} className="flex items-start gap-2">
-                      <span className="text-blue-600 mt-0.5">•</span>
+                      <CheckCircle2 className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
                       <span>{point}</span>
                     </li>
                   ))}
                 </ul>
+
+                <div className="mt-6 flex items-center justify-between gap-4">
+                  <Link
+                    href={item.cta.href}
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-blue-700 hover:text-blue-800"
+                  >
+                    {item.cta.label}
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                  <Link
+                    href="/contact"
+                    className="text-xs font-semibold text-gray-600 hover:text-gray-900 underline underline-offset-4"
+                  >
+                    Talk to advisor
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Quick Access */}
-      <section className="px-4 sm:px-6 lg:px-12 xl:px-16 pb-12">
-        <div className="max-w-6xl mx-auto bg-white border border-gray-100 rounded-3xl shadow-sm p-6 sm:p-8">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
+      {/* Certifications showcase */}
+      <section className="px-4 sm:px-6 lg:px-12 xl:px-16 pb-16">
+        <div className="max-w-6xl mx-auto rounded-[32px] bg-gradient-to-br from-blue-600/10 to-blue-600/5 border border-blue-100 p-8 sm:p-12 space-y-8">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
             <div>
-              <p className="text-xs font-semibold text-blue-600 uppercase tracking-wide">Start Exploring</p>
-              <h2 className="text-2xl font-bold text-gray-900 mt-1">Jump to any service</h2>
+              <p className="text-xs font-semibold text-blue-700 uppercase tracking-wide">Certifications</p>
+              <h2 className="text-3xl font-bold text-gray-900">IBM, Microsoft, Bosch and VAWE certificates</h2>
+              <p className="text-sm text-gray-600 mt-2 max-w-2xl">
+                We support certification-aligned learning paths and assessments so learners can show credible proof of skills.
+              </p>
             </div>
-            <p className="text-sm text-gray-500 max-w-md">
-              Use the cards to navigate to detailed sections or hover “Services” in the top navigation.
-            </p>
+            <Link
+              href="/certifications"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-2xl font-semibold shadow hover:bg-blue-700 transition-colors w-fit"
+            >
+              Explore Certifications
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {servicesDetails.map((service) => (
-              <Link
-                key={`quick-${service.id}`}
-                href={`/services#${service.id}`}
-                className="group border border-gray-100 rounded-2xl p-5 hover:border-blue-200 hover:shadow-lg transition-all bg-gradient-to-br from-white to-blue-50/30"
-              >
-                <p className="text-xs uppercase tracking-wide text-blue-600 mb-1">{service.name}</p>
-                <p className="text-base font-semibold text-gray-900 group-hover:text-blue-700">
-                  {service.heroTagline}
-                </p>
-                <p className="text-sm text-gray-500 mt-2 line-clamp-2">{service.summary}</p>
-                <div className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-blue-600">
-                  View section
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {certificationShowcase.map((cert) => (
+              <div key={cert.title} className="rounded-3xl bg-white border border-white/60 shadow-sm p-6 hover:shadow-lg transition-shadow">
+                <p className="text-lg font-semibold text-gray-900">{cert.title}</p>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {cert.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-3 py-1 rounded-full text-xs font-semibold bg-blue-600/10 text-blue-700"
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </div>
-              </Link>
+                <p className="text-sm text-gray-600 mt-3">
+                  Structured prep, practice tests, and verification-ready certificates.
+                </p>
+              </div>
             ))}
           </div>
         </div>
       </section>
-
-      {/* Services Sections */}
-      <div className="space-y-16 pb-20">
-        {servicesDetails.map((service, index) => (
-          <section key={service.id} id={service.id} className="px-4 sm:px-6 lg:px-12 xl:px-16 scroll-mt-28">
-            <div
-              className={`max-w-6xl mx-auto rounded-[32px] overflow-hidden border ${
-                index % 2 === 0 ? "bg-white border-gray-100 shadow-xl" : "bg-blue-50 border-blue-100 shadow-lg"
-              }`}
-            >
-              <div className="grid lg:grid-cols-[3fr,2fr] gap-0">
-                <div className="p-8 sm:p-10 flex flex-col justify-center space-y-6">
-                  <div className="inline-flex items-center space-x-2 text-xs font-semibold uppercase tracking-wide text-blue-700">
-                    <span className="w-2 h-2 rounded-full bg-blue-600"></span>
-                    <span>{service.heroTagline}</span>
-                  </div>
-                  <div className="space-y-4">
-                    <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 leading-tight">{service.name}</h2>
-                    <p className="text-base text-gray-600">{service.summary}</p>
-                    <p className="text-sm text-gray-500">{service.description}</p>
-                  </div>
-                  <div className="grid sm:grid-cols-2 gap-3">
-                    {service.highlights.map((highlight) => (
-                      <div key={highlight} className="flex items-start gap-3 bg-white/70 rounded-2xl border border-white/60 px-4 py-3">
-                        <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                        <p className="text-sm text-gray-700">{highlight}</p>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="flex flex-wrap gap-3 pt-2">
-                    {service.outcomes.map((stat) => (
-                      <div key={stat} className="px-4 py-2 bg-blue-600/10 text-blue-800 text-sm font-medium rounded-full">
-                        {stat}
-                      </div>
-                    ))}
-                  </div>
-                  <div>
-                    <Link
-                      href={service.cta.href}
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white text-sm sm:text-base font-semibold rounded-2xl shadow hover:bg-blue-700 transition-colors"
-                    >
-                      {service.cta.label}
-                      <ArrowRight className="w-4 h-4" />
-                    </Link>
-                  </div>
-                </div>
-
-                <div
-                  className={`p-8 sm:p-10 bg-gradient-to-br ${
-                    index % 2 === 0 ? "from-blue-600/10 to-blue-600/5" : "from-white/70 to-white/20"
-                  } flex flex-col justify-center`}
-                >
-                  <div className="grid gap-4">
-                    {[0, 1, 2].map((row) => (
-                      <div
-                        key={`row-${row}`}
-                        className="h-16 rounded-2xl bg-white/80 border border-white/60 backdrop-blur-sm shadow-sm"
-                      />
-                    ))}
-                  </div>
-                  <div className="mt-6 text-sm text-gray-600">
-                    Scroll within the page or use the services menu to jump directly to this section.
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        ))}
-      </div>
 
       {/* Process Section */}
       <section className="px-4 sm:px-6 lg:px-12 xl:px-16 pb-16">

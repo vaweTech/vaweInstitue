@@ -189,24 +189,24 @@ export default function Home() {
     },
     {
       id: 4,
-      title: 'Business Management',
-      description: 'Essential business skills including leadership, finance, and strategic planning',
+      title: 'Python Full Stack',
+      description: 'Build complete web applications using Python, Django, REST APIs, databases, and modern frontend tools',
       duration: '14 weeks',
-      level: 'All Levels',
+      level: 'Beginner to Advanced',
       color: 'green',
-      iconName: 'Briefcase',
-      image: '/digitalB.png',
+      iconName: 'Code',
+      image: '/assets/pythonimge.jpeg',
       enrolled: '900+',
       rating: '4.9',
       features: [
-        'Leadership & Team Management',
-        'Financial Planning & Budgeting',
-        'Strategic Planning & Analysis',
-        'Project Management Methodologies',
-        'Communication & Negotiation',
-        'Operations & Supply Chain',
-        'Marketing & Sales Strategy',
-        'Entrepreneurship & Innovation'
+        'Python Fundamentals & OOP',
+        'Django Framework & MVT Architecture',
+        'REST APIs with Django REST Framework',
+        'Database Design with PostgreSQL / MySQL',
+        'Authentication & Authorization (JWT / Sessions)',
+        'Frontend Basics (HTML, CSS, JavaScript)',
+        'React Integration & API Consumption',
+        'Deployment (Hosting, CI/CD Basics)'
       ]
     }
   ];

@@ -31,6 +31,64 @@ const textTone = {
   subtle: 'color-mix(in oklab,var(--text)70%,transparent)',
 };
 
+const internshipPrograms = [
+  {
+    title: 'Python Full-Stack Internship',
+    subtitle: 'Django + APIs + Databases + Frontend',
+    description:
+      'Build production-style web apps end-to-end with Python, Django, REST APIs, SQL databases and modern UI workflows.',
+    duration: '12 weeks',
+    level: 'Beginner → Advanced',
+    accent: '#0ea5e9',
+    Icon: Laptop,
+    highlights: ['Python + OOP', 'Django + DRF', 'SQL + Deployments'],
+  },
+  {
+    title: 'Python with AI/ML Internship',
+    subtitle: 'ML pipelines + real datasets',
+    description:
+      'Learn practical ML by building pipelines, training models, evaluating results and presenting insights on real datasets.',
+    duration: '10 weeks',
+    level: 'Intermediate',
+    accent: '#8b5cf6',
+    Icon: Sparkles,
+    highlights: ['NumPy/Pandas', 'Scikit-learn', 'Mini capstone'],
+  },
+  {
+    title: 'Data Analytics Internship',
+    subtitle: 'Dashboards + storytelling',
+    description:
+      'Analyze business-style datasets, build dashboards, automate reports and communicate KPI/ROI insights clearly.',
+    duration: '8 weeks',
+    level: 'Beginner → Intermediate',
+    accent: '#10b981',
+    Icon: LineChart,
+    highlights: ['Excel/SQL basics', 'Power BI', 'Insight storytelling'],
+  },
+  {
+    title: 'Java Full-Stack Internship',
+    subtitle: 'Spring Boot + REST + Frontend',
+    description:
+      'Develop full-stack applications using Java, Spring Boot, REST APIs, databases and frontend integration patterns.',
+    duration: '12 weeks',
+    level: 'Beginner → Advanced',
+    accent: '#f97316',
+    Icon: Layers,
+    highlights: ['Core Java', 'Spring Boot', 'APIs + DB + Deploy'],
+  },
+  {
+    title: 'Web Development Internship',
+    subtitle: 'HTML/CSS/JS + React',
+    description:
+      'Master modern web development foundations and build responsive sites and React apps with real project workflows.',
+    duration: '8 weeks',
+    level: 'Beginner',
+    accent: '#22c55e',
+    Icon: Rocket,
+    highlights: ['HTML/CSS', 'JavaScript', 'React projects'],
+  },
+];
+
 export const metadata = {
   title: 'Internships & Real-time Projects | VAWE Institute',
   description:
@@ -377,11 +435,35 @@ export default function PlacementsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <main className="min-h-screen mt-[-15px] bg-[var(--background)] text-[var(--text)]">
+      <main
+        className="min-h-screen pt-[70px] bg-[var(--background)] text-[var(--text)]"
+        style={{
+          // Page-scoped theme override (doesn't affect other pages)
+          '--navbar-hero': '#0B1220',
+          '--button': '#2563EB',
+          '--button-hover': '#1D4ED8',
+          '--background': '#F8FAFC',
+          '--background-alt': '#EFF6FF',
+          '--text': '#000000',
+          '--success': '#16A34A',
+        }}
+      >
+        {/* Mobile sticky CTA (better conversion + easier navigation) */}
+        <div className="lg:hidden fixed bottom-3 left-0 right-0 z-50 px-4">
+          <div className="mx-auto max-w-xl rounded-2xl bg-white/90 backdrop-blur border border-[color-mix(in oklab,var(--text)12%,transparent)] shadow-xl p-3 flex items-center gap-2">
+            <Button href="/enrollment" size="md" className="flex-1 justify-center">
+              Apply
+            </Button>
+            <Button href="tel:8885103333" size="md" variant="outline" className="flex-1 justify-center">
+              Call
+            </Button>
+          </div>
+        </div>
+
         {/* ---------- HERO SECTION ---------- */}
         <section
           id="internship-hero"
-          className="relative overflow-hidden py-20 sm:py-24"
+          className="relative overflow-hidden py-16 sm:py-20"
           style={{ backgroundColor: 'var(--navbar-hero)' }}
         >
           {/* subtle shapes */}
@@ -391,7 +473,7 @@ export default function PlacementsPage() {
           </div>
 
           <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
-            <div className="grid lg:grid-cols-[minmax(0,1.2fr),minmax(0,0.9fr)] gap-10 items-center">
+            <div className="grid lg:grid-cols-[minmax(0,1.15fr),minmax(0,0.85fr)] gap-10 lg:gap-14 items-center">
               {/* LEFT: Copy */}
               <div className="space-y-6 text-white">
                 <div className="inline-flex flex-wrap items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full text-xs sm:text-sm font-medium border border-white/15">
@@ -400,13 +482,13 @@ export default function PlacementsPage() {
                 </div>
 
                 <div className="space-y-3">
-                  <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight">
+                  <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.05] tracking-tight">
                     Turn your learning into
                     <span className="block font-bold text-[var(--button-hover)]">
                       real work & real impact.
                     </span>
                   </h1>
-                  <p className="text-sm sm:text-base text-white/85 max-w-xl">
+                  <p className="text-sm sm:text-base text-white/85 max-w-xl leading-relaxed">
                     Work-integrated internships with real-time project experience, guided by
                     engineers and leaders from VAWE Global Tech.
                   </p>
@@ -424,8 +506,8 @@ export default function PlacementsPage() {
                   </span>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button href="/enrollment" size="lg">
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                  <Button href="/enrollment" size="lg" className="shadow-lg shadow-black/10">
                     Apply for Internship
                   </Button>
                   <Button
@@ -453,15 +535,15 @@ export default function PlacementsPage() {
 
               {/* RIGHT: Stats cluster card */}
               <div className="space-y-4">
-                <div className="rounded-3xl bg-white/10 backdrop-blur-xl border border-white/15 p-5 sm:p-6">
+                <div className="rounded-3xl bg-white/10 backdrop-blur-xl border border-white/15 p-5 sm:p-6 shadow-[0_20px_60px_-35px_rgba(0,0,0,0.55)]">
                   <p className="text-xs font-semibold text-white/70 tracking-[0.2em] uppercase mb-2">
                     Snapshot
                   </p>
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-2 gap-3 sm:gap-4">
                     {stats.map((stat) => (
                       <div
                         key={stat.label}
-                        className="rounded-2xl bg-white/5 border border-white/15 p-3 text-white"
+                        className="rounded-2xl bg-white/5 border border-white/15 p-3 text-white hover:bg-white/10 transition-colors"
                       >
                         <p className="text-[0.65rem] uppercase tracking-[0.18em] text-white/60">
                           {stat.label}
@@ -478,6 +560,123 @@ export default function PlacementsPage() {
                   <span>Internship · Real-time Projects · Mentorship</span>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ---------- INTERNSHIP PROGRAMS (CARDS) ---------- */}
+        <section
+          id="internship-programs"
+          className="py-14 sm:py-16 bg-[var(--background)] border-b border-[color-mix(in oklab,var(--text)10%,transparent)]"
+        >
+          <div className="container mx-auto px-4 sm:px-6 lg:px-10">
+            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+              <div className="max-w-2xl space-y-3">
+                <p className="text-xs sm:text-sm uppercase tracking-[0.3em] text-[var(--button-hover)] font-semibold">
+                  Internship Programs
+                </p>
+                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
+                  Choose your internship track.
+                </h2>
+                <p className="text-sm sm:text-base" style={{ color: textTone.primary }}>
+                  Each program is designed to feel like real work: requirements → sprints → reviews → demo.
+                  Pick your track and start building proof-of-work.
+                </p>
+              </div>
+
+              <div className="hidden lg:flex gap-3">
+                <Button href="/enrollment" size="md" className="bg-[var(--button)] text-white hover:bg-[var(--button-hover)]">
+                  Apply Now
+                </Button>
+                <Button href="/contact" size="md" variant="outline" className="border-[var(--button)] text-[var(--button)] hover:bg-[var(--button)]/10">
+                  Talk to Advisor
+                </Button>
+              </div>
+            </div>
+
+            <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+              {internshipPrograms.map((program) => (
+                <Card
+                  key={program.title}
+                  hoverable
+                  accentColor={program.accent}
+                  className="h-full flex flex-col bg-white text-black"
+                >
+                  <CardHeader className="pb-3">
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="flex items-start gap-4">
+                        <div
+                          className="w-12 h-12 rounded-2xl flex items-center justify-center shadow-md"
+                          style={{ backgroundColor: program.accent }}
+                        >
+                          <program.Icon className="w-6 h-6 text-white" />
+                        </div>
+                        <div className="space-y-1">
+                          <h3 className="text-lg sm:text-xl font-semibold leading-snug">
+                            {program.title}
+                          </h3>
+                          <p className="text-xs sm:text-sm text-gray-700">
+                            {program.subtitle}
+                          </p>
+                        </div>
+                      </div>
+                      <span
+                        className="shrink-0 inline-flex px-3 py-1 rounded-full text-[0.7rem] font-semibold border border-gray-200 text-gray-700"
+                      >
+                        {program.duration}
+                      </span>
+                    </div>
+                  </CardHeader>
+
+                  <CardBody className="pt-1 flex-1 flex flex-col">
+                    <p className="text-sm leading-relaxed text-gray-800">
+                      {program.description}
+                    </p>
+
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--button)]/10 text-[var(--button)] text-xs font-semibold">
+                        <TrendingUp className="w-4 h-4" />
+                        {program.level}
+                      </span>
+                      {program.highlights.map((tag) => (
+                        <span
+                          key={tag}
+                          className="inline-flex px-3 py-1 rounded-full text-xs border bg-white border-gray-200 text-gray-700"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="mt-6 grid grid-cols-2 gap-3">
+                      <Button
+                        href="/enrollment"
+                        size="md"
+                        className="bg-[var(--button)] text-white hover:bg-[var(--button-hover)] w-full justify-center"
+                      >
+                        Apply
+                      </Button>
+                      <Button
+                        href="/contact"
+                        size="md"
+                        variant="outline"
+                        className="border-[var(--button)] text-[var(--button)] hover:bg-[var(--button)]/10 w-full justify-center"
+                      >
+                        Details
+                      </Button>
+                    </div>
+                  </CardBody>
+                </Card>
+              ))}
+            </div>
+
+            <div className="mt-8 lg:hidden flex flex-col sm:flex-row gap-3">
+              <Button href="/enrollment" size="md" className="bg-[var(--button)] text-white hover:bg-[var(--button-hover)] w-full sm:w-auto justify-center">
+                Apply Now
+              </Button>
+              <Button href="/contact" size="md" variant="outline" className="border-[var(--button)] text-[var(--button)] hover:bg-[var(--button)]/10 w-full sm:w-auto justify-center">
+                Talk to Advisor
+              </Button>
             </div>
           </div>
         </section>

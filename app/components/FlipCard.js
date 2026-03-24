@@ -100,12 +100,10 @@ function FlipCard({ course, className = "", variant = "default" }) {
                   <div className="bg-[color-mix(in_oklab,var(--navbar-hero)_15%,white)] rounded-lg p-2 text-center">
                     <Clock className="w-5 h-5 text-[var(--navbar-hero)] mx-auto mb-1" />
                     <div className="text-sm font-semibold text-[var(--text)]">{course.duration}</div>
-                    <div className="text-xs text-gray-600">Duration</div>
                   </div>
                   <div className="bg-[color-mix(in_oklab,var(--button)_15%,white)] rounded-lg p-2 text-center">
                     <TrendingUp className="w-5 h-5 text-[var(--button)] mx-auto mb-1" />
                     <div className="text-sm font-semibold text-[var(--text)]">{course.level}</div>
-                    <div className="text-xs text-gray-600">Level</div>
                   </div>
                 </div>
 

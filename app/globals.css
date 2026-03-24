@@ -15,29 +15,29 @@
 
 
 :root {
-  /* App Theme - Updated to brand palette */
-  --background: #FBFBFB;               /* Light Background */
-  --background-alt: #E9F7FB;           /* Subtle light blue */
-  --text: #04333a;                     /* Dark teal text */
-  --navbar-hero: #00448a;              /* Primary blue for navbar/hero */
-  --button: #26ebe5;                   /* Cyan/teal accent for buttons */
-  --button-hover: #20d7d1;             /* Accent hover */
-  --success: #2ecc71;                  /* Keep success green */
+  /* App Theme - Navy + Amber (modern, high-contrast) */
+  --background: #F7FAFF;               /* Soft cool white */
+  --background-alt: #EEF2FF;           /* Subtle indigo tint */
+  --text: #0B1220;                     /* Deep ink */
+  --navbar-hero: #0B2A6F;              /* Navy */
+  --button: #F59E0B;                   /* Amber */
+  --button-hover: #D97706;             /* Darker amber */
+  --success: #16A34A;                  /* Success green */
 
   /* Brand System */
-  --brand-primary: #00448a;
-  --brand-primary-hover: #003a76;
-  --brand-accent: #26ebe5;
-  --brand-accent-hover: #20d7d1;
-  --brand-teal-dark: #04333a;
-  --brand-warm: #f56c53;
-  --brand-warm-hover: #e65842;
-  --brand-warm-soft: #fdc377;
-  --brand-text: #333333;
-  --brand-text-secondary: #666666;
+  --brand-primary: #0B2A6F;
+  --brand-primary-hover: #082457;
+  --brand-accent: #F59E0B;
+  --brand-accent-hover: #D97706;
+  --brand-teal-dark: #0B1220;
+  --brand-warm: #F97316;
+  --brand-warm-hover: #EA580C;
+  --brand-warm-soft: #FED7AA;
+  --brand-text: #0B1220;
+  --brand-text-secondary: #475569;
   --brand-bg: #ffffff;
-  --brand-surface: #04333a;
-  --brand-border: #dee2e6;
+  --brand-surface: #0B1220;
+  --brand-border: #E2E8F0;
 
   /* Legacy palette still available for components that reference it */
   --foreground: #2B2B2B;
@@ -861,7 +861,7 @@
   }
 }
 
-/* Light Smooth Scrollbar */
+/* Smooth Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }

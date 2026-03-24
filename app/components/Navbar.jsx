@@ -11,6 +11,7 @@ import {
 import { courses } from '../courses/data';
 
 const MORE_MENU_CLOSE_DELAY = 300;
+const COURSES_MENU_CLOSE_DELAY = 350;
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,6 +30,7 @@ export default function Navbar() {
   const searchRef = useRef(null);
   const searchInputRef = useRef(null);
   const moreHoverTimeout = useRef(null);
+  const coursesHoverTimeout = useRef(null);
 
   // responsive icon size helper (use with className)
   // we use tailwind responsive classes inline in JSX instead of function
@@ -122,6 +124,26 @@ export default function Navbar() {
     }
   };
 
+  const clearCoursesHoverTimeout = () => {
+    if (coursesHoverTimeout.current) {
+      clearTimeout(coursesHoverTimeout.current);
+      coursesHoverTimeout.current = null;
+    }
+  };
+
+  const handleCoursesMouseEnter = () => {
+    clearCoursesHoverTimeout();
+    setIsCoursesOpen(true);
+  };
+
+  const handleCoursesMouseLeave = () => {
+    clearCoursesHoverTimeout();
+    coursesHoverTimeout.current = setTimeout(() => {
+      setIsCoursesOpen(false);
+      setSelectedCategory(null);
+    }, COURSES_MENU_CLOSE_DELAY);
+  };
+
   const handleMoreMouseEnter = () => {
     clearMoreHoverTimeout();
     setIsMoreOpen(true);
@@ -160,6 +182,10 @@ export default function Navbar() {
         clearTimeout(moreHoverTimeout.current);
         moreHoverTimeout.current = null;
       }
+      if (coursesHoverTimeout.current) {
+        clearTimeout(coursesHoverTimeout.current);
+        coursesHoverTimeout.current = null;
+      }
     };
   }, []);
 
@@ -167,7 +193,7 @@ export default function Navbar() {
     { name: 'Trainings', href: '/services#trainings', icon: GraduationCap },
     { name: 'Internships', href: '/internship', icon: Building2 },
     { name: 'Certifications', href: '/certifications', icon: Award },
-    { name: 'Projects', href: '/services#projects', icon: Briefcase },
+    { name: 'Projects', href: '/academic-projects', icon: Briefcase },
     { name: 'Workshops', href: '/services#workshops', icon: Users },
     { name: 'CRT & Placements', href: '/services', icon: Building2 },
   ];
@@ -212,8 +238,8 @@ export default function Navbar() {
             <div
               ref={coursesRef}
               className="hidden lg:block relative"
-              onMouseEnter={() => setIsCoursesOpen(true)}
-              onMouseLeave={() => setIsCoursesOpen(false)}
+              onMouseEnter={handleCoursesMouseEnter}
+              onMouseLeave={handleCoursesMouseLeave}
             >
               <button
                 aria-haspopup="menu"
