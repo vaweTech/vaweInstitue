@@ -31,7 +31,7 @@ export default function Footer() {
                 />
               </div>
               <div className="flex flex-col">
-                <span className="text-xl font-bold text-white">VAWE Institute</span>
+                <span className="text-xl font-bold text-white">VAWE Institutes Pvt.Ltd</span>
                 <span className="text-xs text-white">Learn. Grow. Succeed.</span>
               </div>
             </div>

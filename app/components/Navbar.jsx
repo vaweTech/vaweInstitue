@@ -8,12 +8,11 @@ import {
   GraduationCap, Award, Briefcase, Users, Building2, Grid3x3, MoreVertical,
   ChevronRight, Clock, TrendingUp, Star, Search
 } from 'lucide-react';
-import { courses } from '../courses/data';
-
 const MORE_MENU_CLOSE_DELAY = 300;
 const COURSES_MENU_CLOSE_DELAY = 350;
 
 export default function Navbar() {
+  const [courses, setCourses] = useState([]);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCoursesOpen, setIsCoursesOpen] = useState(false);
   const [isMoreOpen, setIsMoreOpen] = useState(false);
@@ -35,9 +34,13 @@ export default function Navbar() {
   // responsive icon size helper (use with className)
   // we use tailwind responsive classes inline in JSX instead of function
 
+  useEffect(() => {
+    import('../courses/data').then((mod) => setCourses(mod.courses));
+  }, []);
+
   const categories = useMemo(
-    () => Array.from(new Set(courses.map(course => course.category))),
-    []
+    () => Array.from(new Set(courses.map((course) => course.category))),
+    [courses]
   );
 
   const searchResults = useMemo(() => {

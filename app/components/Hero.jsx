@@ -22,7 +22,7 @@ export default function HeroSection() {
                 priority
               />
               <span className="mt-1 text-orange-600 font-bold font-sans tracking-wide">
-                VAWE INSTITUTE
+                Value Added Work for Empowerment 
               </span>
             </div>
 

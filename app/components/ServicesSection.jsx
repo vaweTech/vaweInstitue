@@ -312,7 +312,7 @@ export default function ServicesSection() {
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl xl:text-5xl font-bold text-slate-900">
-            Services at VAWE Institutes
+            Services at VAWE Institutes Pvt.Ltd
           </h2>
           <p className="text-sm md:text-lg text-slate-600 mt-2">
             Learning paths designed for growth and career readiness.

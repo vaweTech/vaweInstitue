@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono, Roboto, Open_Sans } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/Navbar";
+import NavbarLoader from "./components/NavbarLoader";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 
 const geistSans = Geist({
@@ -101,7 +101,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} ${openSans.variable} antialiased`}
       >
-        <Navbar />
+        <NavbarLoader />
         <main className="pt-20">
           {children}
         </main>
