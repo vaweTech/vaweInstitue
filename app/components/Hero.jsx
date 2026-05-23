@@ -21,7 +21,10 @@ export default function HeroSection() {
                 className="w-[200px] h-auto md:w-[220px]"
                 priority
               />
-              <span className="mt-1 text-orange-600 font-bold font-sans tracking-wide">
+               <span className="mt-1 text-orange-600 font-bold font-sans tracking-wide">
+               VAWE Institutes Pvt.Ltd
+              </span>
+              <span className="mt-1 text-orange-800 font-bold font-sans tracking-wide text-sm">
                 Value Added Work for Empowerment 
               </span>
             </div>
