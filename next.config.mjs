@@ -5,7 +5,8 @@ const nextConfig = {
     return [
       {
         source: "/webmail",
-        destination: "https://email.godaddy.com/",
+        destination:
+          "https://sg2plzcpnl508885.prod.sin2.secureserver.net:2083/frontend/jupiter/email_accounts/index.html#/list",
         permanent: false,
       },
     ];
