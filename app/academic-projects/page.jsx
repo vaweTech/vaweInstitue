@@ -2,6 +2,7 @@
 
 import { createElement, useMemo } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowRight,
   BadgeCheck,
@@ -492,11 +493,13 @@ export default function HomePage() {
           <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
             {technologies.map((t) => (
               <div key={t.name} className="group flex flex-col items-center gap-3 rounded-2xl bg-white border border-gray-200 px-4 py-5 hover:shadow-lg hover:border-blue-200 hover:-translate-y-1 transition-all duration-300">
-                <img
+                <Image
                   src={t.logo}
                   alt={t.name}
+                  width={40}
+                  height={40}
+                  unoptimized
                   className="h-10 w-10 object-contain group-hover:scale-110 transition-transform duration-300"
-                  loading="lazy"
                 />
                 <span className="text-sm font-semibold text-gray-700 group-hover:text-gray-900 transition">{t.name}</span>
               </div>

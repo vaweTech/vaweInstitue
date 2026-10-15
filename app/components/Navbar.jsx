@@ -70,7 +70,7 @@ export default function Navbar() {
         return titleMatch || categoryMatch || descriptionMatch || levelMatch || (isSearchingForProgram && hasRelatedTerm);
       })
       .slice(0, 10);
-  }, [searchQuery]);
+  }, [courses, searchQuery]);
 
   const getCoursesByCategory = (category) => courses.filter(c => c.category === category).slice(0, 6);
   const activeCategory = selectedCategory ?? (isCoursesOpen && categories.length > 0 ? categories[0] : null);

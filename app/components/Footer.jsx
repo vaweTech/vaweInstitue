@@ -140,7 +140,7 @@ export default function Footer() {
               &copy; {currentYear} VAWE Institute. All rights reserved.
             </p>
             <div className="flex space-x-6 text-sm">
-                  <Link href="#" className="text-white hover:text-white transition-colors">
+                  <Link href="/privacy-policy" className="text-white hover:text-white transition-colors">
                 Privacy Policy
               </Link>
                 <Link href="#" className="text-white hover:text-white transition-colors">

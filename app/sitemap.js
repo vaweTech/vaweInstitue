@@ -11,6 +11,7 @@ export default function sitemap() {
     "/courses",
     "/contact",
     "/enrollment",
+    "/privacy-policy",
     "/blogs",
     "/placements",
   ].map((path) => ({
